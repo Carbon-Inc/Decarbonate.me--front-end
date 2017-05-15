@@ -15,6 +15,8 @@
 		C898E8AD1ECA0E7400D81554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */; };
 		C898E8B81ECA0E7400D81554 /* DecarbonateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8B71ECA0E7400D81554 /* DecarbonateTests.m */; };
 		C898E8C31ECA0E7400D81554 /* DecarbonateUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8C21ECA0E7400D81554 /* DecarbonateUITests.m */; };
+		C898E8D41ECA171500D81554 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8D31ECA171500D81554 /* Login.storyboard */; };
+		C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8D51ECA172A00D81554 /* Event.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		C898E8BE1ECA0E7400D81554 /* DecarbonateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecarbonateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E8C21ECA0E7400D81554 /* DecarbonateUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecarbonateUITests.m; sourceTree = "<group>"; };
 		C898E8C41ECA0E7400D81554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C898E8D31ECA171500D81554 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		C898E8D51ECA172A00D81554 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 			children = (
 				C898E8A61ECA0E7400D81554 /* Main.storyboard */,
 				C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */,
+				C898E8D31ECA171500D81554 /* Login.storyboard */,
+				C898E8D51ECA172A00D81554 /* Event.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -273,6 +279,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C898E8D41ECA171500D81554 /* Login.storyboard in Resources */,
+				C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */,
 				C898E8AD1ECA0E7400D81554 /* LaunchScreen.storyboard in Resources */,
 				C898E8AA1ECA0E7400D81554 /* Assets.xcassets in Resources */,
 				C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */,
