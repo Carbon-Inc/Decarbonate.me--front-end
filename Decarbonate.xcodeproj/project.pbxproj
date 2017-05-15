@@ -58,6 +58,7 @@
 		C898E8D51ECA172A00D81554 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		C898E8D71ECA26F800D81554 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C898E8D81ECA26F800D81554 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C898E8E01ECA3F7600D81554 /* Credential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credential.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +172,7 @@
 		C898E8D21ECA0E8E00D81554 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C898E8E01ECA3F7600D81554 /* Credential.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
