@@ -17,6 +17,7 @@
 		C898E8C31ECA0E7400D81554 /* DecarbonateUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8C21ECA0E7400D81554 /* DecarbonateUITests.m */; };
 		C898E8D41ECA171500D81554 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8D31ECA171500D81554 /* Login.storyboard */; };
 		C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8D51ECA172A00D81554 /* Event.storyboard */; };
+		C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8D81ECA26F800D81554 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		C898E8C41ECA0E7400D81554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C898E8D31ECA171500D81554 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C898E8D51ECA172A00D81554 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		C898E8D71ECA26F800D81554 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C898E8D81ECA26F800D81554 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
 				C898E8A31ECA0E7400D81554 /* ViewController.h */,
 				C898E8A41ECA0E7400D81554 /* ViewController.m */,
+				C898E8D71ECA26F800D81554 /* LoginViewController.h */,
+				C898E8D81ECA26F800D81554 /* LoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */,
 				C898E8A51ECA0E7400D81554 /* ViewController.m in Sources */,
 				C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */,
 				C898E89F1ECA0E7400D81554 /* main.m in Sources */,
@@ -550,6 +556,7 @@
 				C898E8C91ECA0E7400D81554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C898E8CA1ECA0E7400D81554 /* Build configuration list for PBXNativeTarget "DecarbonateTests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +565,7 @@
 				C898E8CC1ECA0E7400D81554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C898E8CD1ECA0E7400D81554 /* Build configuration list for PBXNativeTarget "DecarbonateUITests" */ = {
 			isa = XCConfigurationList;
@@ -566,6 +574,7 @@
 				C898E8CF1ECA0E7400D81554 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
