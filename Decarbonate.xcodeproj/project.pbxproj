@@ -101,14 +101,9 @@
 		C898E89C1ECA0E7400D81554 /* Decarbonate */ = {
 			isa = PBXGroup;
 			children = (
-				C898E8A01ECA0E7400D81554 /* AppDelegate.h */,
-				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
-				C898E8A31ECA0E7400D81554 /* ViewController.h */,
-				C898E8A41ECA0E7400D81554 /* ViewController.m */,
-				C898E8A61ECA0E7400D81554 /* Main.storyboard */,
-				C898E8A91ECA0E7400D81554 /* Assets.xcassets */,
-				C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */,
-				C898E8AE1ECA0E7400D81554 /* Info.plist */,
+				C898E8D21ECA0E8E00D81554 /* Model */,
+				C898E8D11ECA0E8900D81554 /* View */,
+				C898E8D01ECA0E7D00D81554 /* Controller */,
 				C898E89D1ECA0E7400D81554 /* Supporting Files */,
 			);
 			path = Decarbonate;
@@ -117,6 +112,8 @@
 		C898E89D1ECA0E7400D81554 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C898E8AE1ECA0E7400D81554 /* Info.plist */,
+				C898E8A91ECA0E7400D81554 /* Assets.xcassets */,
 				C898E89E1ECA0E7400D81554 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +135,33 @@
 				C898E8C41ECA0E7400D81554 /* Info.plist */,
 			);
 			path = DecarbonateUITests;
+			sourceTree = "<group>";
+		};
+		C898E8D01ECA0E7D00D81554 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C898E8A01ECA0E7400D81554 /* AppDelegate.h */,
+				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
+				C898E8A31ECA0E7400D81554 /* ViewController.h */,
+				C898E8A41ECA0E7400D81554 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C898E8D11ECA0E8900D81554 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C898E8A61ECA0E7400D81554 /* Main.storyboard */,
+				C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C898E8D21ECA0E8E00D81554 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
