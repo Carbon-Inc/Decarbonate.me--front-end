@@ -158,6 +158,6 @@ playground.xcworkspace
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
-Credential.h
+/Decarbonate/Credential.h
 
 # End of https://www.gitignore.io/api/macos,swift,xcode,objective-c
