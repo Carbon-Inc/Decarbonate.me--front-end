@@ -1,16 +1,16 @@
 //
-//  Credential.h
+//  Credentials.h
 //  Decarbonate
 //
-//  Created by Kent Rogers on 5/15/17.
+//  Created by Adrian Kenepah-Martin on 5/16/17.
 //  Copyright © 2017 Austin Rogers. All rights reserved.
 //
 
-#ifndef Credential_h
-#define Credential_h
+#ifndef Credentials_h
+#define Credentials_h
 
-#define CLIENT_ID @"QHXUA7ULRDYIYLAAJ3ZS"
+#define CLIENT_ID @"6ITTBJV45ARWYPZOGAACGGFHYICBYZLBEKHIFBOI2LNEFBY45I"
+#define CLIENT_SECRET @"QHXUA7ULRDYIYLAAJ3ZS"
 
-#define CLIENT_SECRET @"6ITTBJV45ARWYPZOGAACGGFHYICBYZLBEKHIFBOI2LNEFBY45I"
 
-#endif /* Credential_h */
+#endif /* Credentials_h */
