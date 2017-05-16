@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
 }
 
 -(void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
@@ -33,11 +33,11 @@
     NSString  *authPath = @"https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=NK5MWISOZ6RTM7HDBN";
     NSURL *authURL = [NSURL URLWithString:authPath];
     
-//    SFSafariViewController *authVC = [[SFSafariViewController alloc]initWithURL:authURL];
-//    authVC.delegate = self;
-//    [self presentViewController:authVC animated:YES completion:nil];
+    //    SFSafariViewController *authVC = [[SFSafariViewController alloc]initWithURL:authURL];
+    //    authVC.delegate = self;
+    //    [self presentViewController:authVC animated:YES completion:nil];
     
-//    [[UIApplication sharedApplication] openURL:authURL options:@{} completionHandler:nil];
+    //    [[UIApplication sharedApplication] openURL:authURL options:@{} completionHandler:nil];
     
     AuthViewController *authController = [[AuthViewController alloc]init];
     authController.url = authURL;
@@ -46,17 +46,17 @@
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
-//    [ebClient getAuthorizationCode:^(NSString *code) {
-//        // Run your code here
-//        
-//    } cancel:^{
-//        // Session is closed
-//        NSLog(@"Error");
-//        
-//    } failure:^(NSError *error) {
-//        // Session is closed
-//        NSLog(@"Error");
-//    }];
+    //    [ebClient getAuthorizationCode:^(NSString *code) {
+    //        // Run your code here
+    //
+    //    } cancel:^{
+    //        // Session is closed
+    //        NSLog(@"Error");
+    //
+    //    } failure:^(NSError *error) {
+    //        // Session is closed
+    //        NSLog(@"Error");
+    //    }];
     
     [self getEventbriteToken];
 }
