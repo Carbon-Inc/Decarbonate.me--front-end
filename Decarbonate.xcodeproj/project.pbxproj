@@ -11,15 +11,14 @@
 		C85E13101ECB6B1D00D2B55A /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85E130E1ECB6B1D00D2B55A /* EventTableViewCell.xib */; };
 		C85E13121ECB6FBA00D2B55A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = C85E13111ECB6FBA00D2B55A /* example.json */; };
 		C85E13151ECB820000D2B55A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13141ECB820000D2B55A /* EventViewController.m */; };
+
 		C898E89F1ECA0E7400D81554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E89E1ECA0E7400D81554 /* main.m */; };
 		C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A11ECA0E7400D81554 /* AppDelegate.m */; };
-		C898E8A51ECA0E7400D81554 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A41ECA0E7400D81554 /* ViewController.m */; };
 		C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8A61ECA0E7400D81554 /* Main.storyboard */; };
 		C898E8AA1ECA0E7400D81554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C898E8A91ECA0E7400D81554 /* Assets.xcassets */; };
 		C898E8AD1ECA0E7400D81554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */; };
 		C898E8B81ECA0E7400D81554 /* DecarbonateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8B71ECA0E7400D81554 /* DecarbonateTests.m */; };
 		C898E8C31ECA0E7400D81554 /* DecarbonateUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8C21ECA0E7400D81554 /* DecarbonateUITests.m */; };
-		C898E8D41ECA171500D81554 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8D31ECA171500D81554 /* Login.storyboard */; };
 		C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8D51ECA172A00D81554 /* Event.storyboard */; };
 		C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8D81ECA26F800D81554 /* LoginViewController.m */; };
 		C898E8E21ECA479000D81554 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8E11ECA479000D81554 /* Address.storyboard */; };
@@ -45,6 +44,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B104B02A1ECB692E00EF940F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B104B0291ECB692E00EF940F /* AFOAuth2Manager.framework in Embed Frameworks */,
+				B104B0271ECB692E00EF940F /* AFNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C85E130C1ECB6B1D00D2B55A /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		C85E130D1ECB6B1D00D2B55A /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
@@ -52,12 +66,11 @@
 		C85E13111ECB6FBA00D2B55A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		C85E13131ECB820000D2B55A /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		C85E13141ECB820000D2B55A /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+
 		C898E89A1ECA0E7400D81554 /* Decarbonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decarbonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E89E1ECA0E7400D81554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C898E8A01ECA0E7400D81554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C898E8A11ECA0E7400D81554 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C898E8A31ECA0E7400D81554 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C898E8A41ECA0E7400D81554 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C898E8A71ECA0E7400D81554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C898E8A91ECA0E7400D81554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C898E8AC1ECA0E7400D81554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,10 +81,10 @@
 		C898E8BE1ECA0E7400D81554 /* DecarbonateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecarbonateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E8C21ECA0E7400D81554 /* DecarbonateUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecarbonateUITests.m; sourceTree = "<group>"; };
 		C898E8C41ECA0E7400D81554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C898E8D31ECA171500D81554 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C898E8D51ECA172A00D81554 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		C898E8D71ECA26F800D81554 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C898E8D81ECA26F800D81554 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+
 		C898E8E01ECA3F7600D81554 /* Credential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credential.h; sourceTree = "<group>"; };
 		C898E8E11ECA479000D81554 /* Address.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
 		C898E8E31ECA47A600D81554 /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
@@ -79,6 +92,7 @@
 		C898E8E61ECA5D2F00D81554 /* CarbonCalculator.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarbonCalculator.storyboard; sourceTree = "<group>"; };
 		C898E8E81ECA5D4200D81554 /* CarbonCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonCalculatorViewController.h; sourceTree = "<group>"; };
 		C898E8E91ECA5D4200D81554 /* CarbonCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonCalculatorViewController.m; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B104B02D1ECB6AAD00EF940F /* SafariServices.framework in Frameworks */,
+				B104B0251ECB691B00EF940F /* AFOAuth2Manager.framework in Frameworks */,
+				B104B0241ECB691B00EF940F /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B104B02B1ECB6AAD00EF940F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B104B02C1ECB6AAD00EF940F /* SafariServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C898E8911ECA0E7400D81554 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +138,9 @@
 				C898E8B61ECA0E7400D81554 /* DecarbonateTests */,
 				C898E8C11ECA0E7400D81554 /* DecarbonateUITests */,
 				C898E89B1ECA0E7400D81554 /* Products */,
+				B104B0221ECB691B00EF940F /* AFNetworking.framework */,
+				B104B0231ECB691B00EF940F /* AFOAuth2Manager.framework */,
+				B104B02B1ECB6AAD00EF940F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +203,7 @@
 				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
 				C898E8A31ECA0E7400D81554 /* ViewController.h */,
 				C898E8A41ECA0E7400D81554 /* ViewController.m */,
+
 				C898E8D71ECA26F800D81554 /* LoginViewController.h */,
 				C898E8D81ECA26F800D81554 /* LoginViewController.m */,
 				C898E8E31ECA47A600D81554 /* AddressViewController.h */,
@@ -192,7 +221,6 @@
 			children = (
 				C898E8A61ECA0E7400D81554 /* Main.storyboard */,
 				C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */,
-				C898E8D31ECA171500D81554 /* Login.storyboard */,
 				C898E8D51ECA172A00D81554 /* Event.storyboard */,
 				C898E8E11ECA479000D81554 /* Address.storyboard */,
 				C898E8E61ECA5D2F00D81554 /* CarbonCalculator.storyboard */,
@@ -204,7 +232,11 @@
 		C898E8D21ECA0E8E00D81554 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C898E8E01ECA3F7600D81554 /* Credential.h */,
+				C898E8A01ECA0E7400D81554 /* AppDelegate.h */,
+				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
+				B10CF4631ECAA78C00D8A2B0 /* AuthManager.h */,
+				B10CF4641ECAA78C00D8A2B0 /* AuthManager.m */,
+				C898E8E01ECA3F7600D81554 /* Credentials.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -219,6 +251,7 @@
 				C898E8961ECA0E7400D81554 /* Sources */,
 				C898E8971ECA0E7400D81554 /* Frameworks */,
 				C898E8981ECA0E7400D81554 /* Resources */,
+				B104B02A1ECB692E00EF940F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,7 +309,7 @@
 				TargetAttributes = {
 					C898E8991ECA0E7400D81554 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 8EL2FG2Q62;
+						DevelopmentTeam = 77479ZW9G2;
 						ProvisioningStyle = Automatic;
 					};
 					C898E8B21ECA0E7400D81554 = {
@@ -320,6 +353,7 @@
 			files = (
 				C898E8D41ECA171500D81554 /* Login.storyboard in Resources */,
 				C898E8E21ECA479000D81554 /* Address.storyboard in Resources */,
+
 				C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */,
 				C898E8AD1ECA0E7400D81554 /* LaunchScreen.storyboard in Resources */,
 				C85E13101ECB6B1D00D2B55A /* EventTableViewCell.xib in Resources */,
@@ -356,6 +390,7 @@
 				C898E8A51ECA0E7400D81554 /* ViewController.m in Sources */,
 				C898E8EA1ECA5D4200D81554 /* CarbonCalculatorViewController.m in Sources */,
 				C898E8E51ECA47A600D81554 /* AddressViewController.m in Sources */,
+
 				C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */,
 				C898E89F1ECA0E7400D81554 /* main.m in Sources */,
 				C85E130F1ECB6B1D00D2B55A /* EventTableViewCell.m in Sources */,
@@ -509,7 +544,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8EL2FG2Q62;
+				DEVELOPMENT_TEAM = 77479ZW9G2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Decarbonate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AustinRogers.Decarbonate;
@@ -521,7 +560,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8EL2FG2Q62;
+				DEVELOPMENT_TEAM = 77479ZW9G2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Decarbonate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AustinRogers.Decarbonate;
