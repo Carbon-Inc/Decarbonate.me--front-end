@@ -7,14 +7,14 @@
 //
 
 #import "LoginViewController.h"
+#import "AuthManager.h"
 #import "Credentials.h"
+#import "AuthViewController.h"
+#import <SafariServices/SafariServices.h>
 
-@interface LoginViewController ()
+@interface LoginViewController () <SFSafariViewControllerDelegate>
 
-@property(strong, nonatomic) NSString *clientID;
-@property(strong, nonatomic) NSString *clientSecretID;
-
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginWithEventbriteButton;
 
 @end
 
@@ -22,13 +22,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+}
+
+-(void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)getEventbriteToken {
+    NSString  *authPath = @"https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=NK5MWISOZ6RTM7HDBN";
+    NSURL *authURL = [NSURL URLWithString:authPath];
     
-    self.clientID = CLIENT_ID;
-    self.clientSecretID = CLIENT_SECRET;
+//    SFSafariViewController *authVC = [[SFSafariViewController alloc]initWithURL:authURL];
+//    authVC.delegate = self;
+//    [self presentViewController:authVC animated:YES completion:nil];
+    
+//    [[UIApplication sharedApplication] openURL:authURL options:@{} completionHandler:nil];
+    
+    AuthViewController *authController = [[AuthViewController alloc]init];
+    authController.url = authURL;
+    [self presentViewController:authController animated:YES completion:nil];
+    
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
+//    [ebClient getAuthorizationCode:^(NSString *code) {
+//        // Run your code here
+//        
+//    } cancel:^{
+//        // Session is closed
+//        NSLog(@"Error");
+//        
+//    } failure:^(NSError *error) {
+//        // Session is closed
+//        NSLog(@"Error");
+//    }];
     
+    [self getEventbriteToken];
 }
 
 @end

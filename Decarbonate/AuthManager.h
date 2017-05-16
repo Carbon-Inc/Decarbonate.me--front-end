@@ -10,4 +10,6 @@
 
 @interface AuthManager : NSObject
 
++ (void)processOAuthStep1Response: (NSURL *)url;
+
 @end
