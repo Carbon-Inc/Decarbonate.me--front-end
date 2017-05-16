@@ -21,6 +21,53 @@
     return YES;
 }
 
+- (void)bootstrapApp{
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    
+    NSError *error;
+    
+    NSInteger count = [self.persistentContainer.viewContext countForFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+    
+    if (count == 0) {
+        
+        NSDictionary *events = [[NSDictionary alloc]init];
+        
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"example" ofType:@"json"];
+        
+        NSData *jsonData = [NSData dataWithContentsOfFile:path];
+        
+        NSError *jsonError;
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+        
+        if (jsonError) {
+            NSLog(@"%@", jsonError.localizedDescription);
+        }
+        
+        events = jsonDictionary[@"Events"];
+        
+        for (NSDictionary *event in events) {
+                        
+            
+        }
+        
+        NSError *saveError;
+        
+        [self.persistentContainer.viewContext save:&saveError];
+        
+        if (saveError) {
+            NSLog(@"There was an error ssaving to core data");
+        } else {
+            NSLog(@"Successfully saved to Core Data");
+        }
+        
+    }
+    
+}
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     [AuthManager processOAuthStep1Response:url];

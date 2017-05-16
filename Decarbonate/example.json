@@ -1,4 +1,4 @@
-{   "eventId": "123456789",
+{ "Events" : [{   "eventId": "123456789",
      "userId": "123458932",
     "name": "exName",
     "start": "exStartDate",
@@ -15,4 +15,4 @@
     "carbon-tonnes": "exTonnesVal",
     "carbon-price": "exPrice"
     "paid": boolean,
-    "transport": "exTransport"}
+              "transport": "exTransport"}]}
