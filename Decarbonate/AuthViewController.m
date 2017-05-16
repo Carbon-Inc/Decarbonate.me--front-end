@@ -30,8 +30,8 @@
     NSLog(@"URL: %@", navigationAction.request.URL.absoluteString);
     
     if ([navigationAction.request.URL.absoluteString containsString:@"access_token="]) {
-        NSLog(@"SUCCESS!!!");
-        NSLog(@"%@", navigationAction.request);
+//        NSLog(@"SUCCESS!!!");
+//        NSLog(@"%@", navigationAction.request);
         
         NSArray *stringComponents = [navigationAction.request.URL.absoluteString componentsSeparatedByString:@"="];
         NSLog(@"ACCESS TOKEN: %@", stringComponents.lastObject);
