@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ADBDDA477FB6C98FCE7BE490 /* libPods-Decarbonate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D78552ACF62F0552FFB53B /* libPods-Decarbonate.a */; };
+		B10CF4651ECAA78C00D8A2B0 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B10CF4641ECAA78C00D8A2B0 /* AuthManager.m */; };
 		C898E89F1ECA0E7400D81554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E89E1ECA0E7400D81554 /* main.m */; };
 		C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A11ECA0E7400D81554 /* AppDelegate.m */; };
 		C898E8A51ECA0E7400D81554 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A41ECA0E7400D81554 /* ViewController.m */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06D78552ACF62F0552FFB53B /* libPods-Decarbonate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Decarbonate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D27573BE8502FB98E23F44C /* Pods-Decarbonate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decarbonate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Decarbonate/Pods-Decarbonate.release.xcconfig"; sourceTree = "<group>"; };
+		B10CF4631ECAA78C00D8A2B0 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
+		B10CF4641ECAA78C00D8A2B0 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
 		C898E89A1ECA0E7400D81554 /* Decarbonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decarbonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E89E1ECA0E7400D81554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C898E8A01ECA0E7400D81554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,6 +65,7 @@
 		C898E8D71ECA26F800D81554 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C898E8D81ECA26F800D81554 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C898E8E01ECA3F7600D81554 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		D1CBD029CA889B28DC25968F /* Pods-Decarbonate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decarbonate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Decarbonate/Pods-Decarbonate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADBDDA477FB6C98FCE7BE490 /* libPods-Decarbonate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +94,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A1381B496B96D181CA6718C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1CBD029CA889B28DC25968F /* Pods-Decarbonate.debug.xcconfig */,
+				5D27573BE8502FB98E23F44C /* Pods-Decarbonate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C74719831D744CAF0B2B3636 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06D78552ACF62F0552FFB53B /* libPods-Decarbonate.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C898E8911ECA0E7400D81554 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +118,8 @@
 				C898E8B61ECA0E7400D81554 /* DecarbonateTests */,
 				C898E8C11ECA0E7400D81554 /* DecarbonateUITests */,
 				C898E89B1ECA0E7400D81554 /* Products */,
+				2A1381B496B96D181CA6718C /* Pods */,
+				C74719831D744CAF0B2B3636 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,6 +199,8 @@
 		C898E8D21ECA0E8E00D81554 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B10CF4631ECAA78C00D8A2B0 /* AuthManager.h */,
+				B10CF4641ECAA78C00D8A2B0 /* AuthManager.m */,
 				C898E8E01ECA3F7600D81554 /* Credentials.h */,
 			);
 			name = Model;
@@ -367,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */,
+				B10CF4651ECAA78C00D8A2B0 /* AuthManager.m in Sources */,
 				C898E8A51ECA0E7400D81554 /* ViewController.m in Sources */,
 				C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */,
 				C898E89F1ECA0E7400D81554 /* main.m in Sources */,
@@ -518,6 +548,7 @@
 		};
 		C898E8C81ECA0E7400D81554 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1CBD029CA889B28DC25968F /* Pods-Decarbonate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 77479ZW9G2;
@@ -530,6 +561,7 @@
 		};
 		C898E8C91ECA0E7400D81554 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D27573BE8502FB98E23F44C /* Pods-Decarbonate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 77479ZW9G2;
