@@ -70,7 +70,7 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    [AuthManager processOAuthStep1Response:url];
+//    [AuthManager processOAuthStep1Response:url];
     
     return YES;
 }
