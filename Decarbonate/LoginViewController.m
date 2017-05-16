@@ -7,11 +7,9 @@
 //
 
 #import "LoginViewController.h"
-#import "Credential.h"
+#import "Credentials.h"
 
 @interface LoginViewController ()
-
-@property(strong, nonatomic) NSString *oAuthBaseURLString;
 
 @property(strong, nonatomic) NSString *clientID;
 @property(strong, nonatomic) NSString *clientSecretID;
@@ -25,14 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.oAuthBaseURLString = @"https://www.eventbrite.com/oauth/authorize";
-    
     self.clientID = CLIENT_ID;
     self.clientSecretID = CLIENT_SECRET;
-}
-
--(void)oAuthRequestWith {
-    
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
