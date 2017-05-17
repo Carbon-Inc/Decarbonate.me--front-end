@@ -36,6 +36,7 @@
         
         NSArray *stringComponents = [navigationAction.request.URL.absoluteString componentsSeparatedByString:@"="];
         NSLog(@"ACCESS TOKEN: %@", stringComponents.lastObject);
+        [[NSUserDefaults standardUserDefaults] setObject:stringComponents.lastObject forKey:@"kToken"];
         
         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
         NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
