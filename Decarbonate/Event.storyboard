@@ -44,7 +44,6 @@
                                 <color key="tintColor" red="0.73568320269999998" green="0.81542241569999996" blue="0.58610481020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="paidEventSegment:" destination="7Di-la-dta" eventType="valueChanged" id="wPH-aA-KFG"/>
-                                    <action selector="segmentControllerAction:" destination="7Di-la-dta" eventType="valueChanged" id="eKl-JX-xoc"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>

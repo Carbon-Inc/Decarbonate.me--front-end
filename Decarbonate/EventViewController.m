@@ -8,6 +8,7 @@
 
 #import "EventViewController.h"
 #import "EventTableViewCell.h"
+#import "Event.h"
 
 @interface EventViewController () <UITableViewDataSource>
 
@@ -15,9 +16,9 @@
 
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property(strong, nonatomic)NSArray *allEvents;
-@property(strong, nonatomic)NSArray *unpaidEvents;
-@property(strong, nonatomic)NSArray *paidEvents;
+@property(strong, nonatomic)NSMutableArray *unpaidEvents;
+@property(strong, nonatomic)NSMutableArray *paidEvents;
+@property(strong, nonatomic) NSArray *currentDataSource;
 
 @end
 
@@ -27,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.unpaidEvents = [[NSMutableArray alloc]init];
+    self.paidEvents = [[NSMutableArray alloc]init];
     self.tableView.dataSource = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -40,8 +43,6 @@
 
 -(void)parseJSON{
     
-    
-    
     NSString* path  = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
     
     NSString* jsonString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
@@ -49,23 +50,18 @@
     NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError *jsonError;
-    NSArray *allKeys = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
-    NSLog(@"%@", allKeys);
+    NSArray *dataObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
     
-    self.allEvents = allKeys;
-    [self.tableView reloadData];
-    //NSMutableDictionary *allEvents = [[NSMutableDictionary alloc]init];
-    
-    for (int i=0; i<[allKeys count]; i++) {
-        NSDictionary *arrayResult = [allKeys objectAtIndex:i];
-        //NSLog(@"name=%@",[arrayResult objectForKey:@"eventId"]);
+    for (NSDictionary *eventObject in dataObjects) {
+        Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
         
-        
-        
+        if ([newEvent.paid isEqual:@1]) {
+            [self.paidEvents addObject:newEvent];
+        } else {
+            [self.unpaidEvents addObject:newEvent];
+        }
     }
-    
-    //return allEvents;
-    
+    [self paidEventSegment:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,18 +72,18 @@
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"cell";
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier forIndexPath:indexPath];
-    NSDictionary *event = self.allEvents[indexPath.row];
+    Event *currentEvent = self.currentDataSource[indexPath.row];
     
-    cell.eventName.text = [event objectForKey:@"name"];
-    cell.eventTime.text = [event objectForKey:@"start"];
+    cell.eventName.text = currentEvent.name;
+    cell.eventTime.text = currentEvent.start;
     //NSString *startDate = [event objectForKey:@"start"];
     //NSString *otherDate = [event objectForKey:@"end"];
     //cell.eventTime.text = [@"%@ - %@", startDate, otherDate];
     
-    cell.eventCategory.text = [event objectForKey:@"category"];
-    cell.eventLocation.text = [event objectForKey:@"address"];
+    cell.eventCategory.text = currentEvent.category;
+    cell.eventLocation.text = currentEvent.address;
     
-    NSString *imageString = [event objectForKey:@"img"];
+    NSString *imageString = currentEvent.img;
     NSURL *imageURL = [NSURL URLWithString:imageString];
     NSData *imgData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *eventImage = [[UIImage alloc] initWithData:imgData];
@@ -97,14 +93,18 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.allEvents.count;
+    return self.currentDataSource.count;
 }
 - (IBAction)paidEventSegment:(UISegmentedControl *)sender {
     switch (sender.selectedSegmentIndex) {
         case 0:
-            
+            self.currentDataSource = self.unpaidEvents;
+            [self.tableView reloadData];
             break;
-            
+        case 1:
+            self.currentDataSource = self.paidEvents;
+            [self.tableView reloadData];
+            break;
         default:
             break;
     }
