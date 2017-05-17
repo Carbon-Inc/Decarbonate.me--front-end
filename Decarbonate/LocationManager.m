@@ -7,6 +7,7 @@
 //
 
 #import "LocationManager.h"
+#import "LocationControllerDelegate.h"
 
 @implementation LocationManager
 
@@ -17,6 +18,28 @@
         shared = [[self alloc] init];
     });
     return shared;
+}
+
+- (id)init {
+    self = [super init];
+    
+    if (self){
+        [self requestPermissions];
+    }
+    
+    self.locationManager.delegate = self;
+    
+    return self;
+}
+
+- (void)requestPermissions {
+    
+    self.locationManager = [[CLLocationManager alloc]init];
+    
+    [self.locationManager requestAlwaysAuthorization];
+    
+    [self.locationManager startUpdatingLocation];
+    
 }
 
 @end
