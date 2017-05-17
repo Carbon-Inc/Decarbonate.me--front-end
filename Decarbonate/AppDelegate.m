@@ -8,8 +8,13 @@
 
 #import "AppDelegate.h"
 #import "AuthManager.h"
+#import "EventViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
+
+@property(strong, nonatomic) LoginViewController *loginVC;
+@property(strong, nonatomic) EventViewController *eventsVC;
 
 @end
 
@@ -17,61 +22,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
+        [self presentAuthController];
+    }
+    
     return YES;
 }
 
-- (void)bootstrapApp{
+- (void)presentAuthController {
+     self.eventsVC = (EventViewController*)[[(AppDelegate*)[[UIApplication sharedApplication]delegate] window] rootViewController];
+    self.loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginVIewController"];
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-    
-    NSError *error;
-    
-    NSInteger count = [self.persistentContainer.viewContext countForFetchRequest:request error:&error];
-    
-    if (error) {
-        NSLog(@"%@", error.localizedDescription);
-    }
-    
-    if (count == 0) {
-        
-        NSDictionary *events = [[NSDictionary alloc]init];
-        
-        NSString *path = [[NSBundle mainBundle]pathForResource:@"example" ofType:@"json"];
-        
-        NSData *jsonData = [NSData dataWithContentsOfFile:path];
-        
-        NSError *jsonError;
-        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
-        
-        if (jsonError) {
-            NSLog(@"%@", jsonError.localizedDescription);
-        }
-        
-        events = jsonDictionary[@"Events"];
-        
-        for (NSDictionary *event in events) {
-                        
-            
-        }
-        
-        NSError *saveError;
-        
-        [self.persistentContainer.viewContext save:&saveError];
-        
-        if (saveError) {
-            NSLog(@"There was an error ssaving to core data");
-        } else {
-            NSLog(@"Successfully saved to Core Data");
-        }
-        
-    }
-    
+//    [rootController.storyboard instantiateViewControllerWithIdentifier:@"authViewController"];
+    [self.eventsVC addChildViewController:self.loginVC];
+    [self.eventsVC.view addSubview:self.loginVC.view];
+    [self.loginVC didMoveToParentViewController:self.eventsVC];
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 //    [AuthManager processOAuthStep1Response:url];
-    
     return YES;
 }
 

@@ -20,6 +20,17 @@
 
 @implementation LoginViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] != nil) {
+        [self removeFromParentViewController];
+        [self.view removeFromSuperview];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -30,7 +41,7 @@
 }
 
 - (void)getEventbriteToken {
-    NSString  *authPath = @"https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=NK5MWISOZ6RTM7HDBN";
+    NSString  *authPath = @"https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=BYIVXD4JETVK43D22T";
     NSURL *authURL = [NSURL URLWithString:authPath];
     
     //    SFSafariViewController *authVC = [[SFSafariViewController alloc]initWithURL:authURL];
