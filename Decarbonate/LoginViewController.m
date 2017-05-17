@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "AuthManager.h"
-//#import "Credentials.h"
+#import "Credentials.h"
 #import "AuthViewController.h"
 #import <SafariServices/SafariServices.h>
 

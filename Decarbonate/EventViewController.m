@@ -48,7 +48,7 @@
     
     NSError *jsonError;
     NSArray *allKeys = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
-    //NSLog(@"%@", allKeys);
+    NSLog(@"%@", allKeys);
     
     self.allEvents = allKeys;
     [self.tableView reloadData];
