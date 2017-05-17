@@ -9,6 +9,8 @@
 #import "LocationManager.h"
 #import "LocationControllerDelegate.h"
 
+@import UserNotifications;
+
 @implementation LocationManager
 
 + (id)shared{

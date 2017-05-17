@@ -14,6 +14,7 @@
 		C85E13101ECB6B1D00D2B55A /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85E130E1ECB6B1D00D2B55A /* EventTableViewCell.xib */; };
 		C85E13151ECB820000D2B55A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13141ECB820000D2B55A /* EventViewController.m */; };
 		C85E13211ECCFB7000D2B55A /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13201ECCFB7000D2B55A /* LocationManager.m */; };
+		C85E13241ECD020B00D2B55A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = C85E13231ECD020B00D2B55A /* example.json */; };
 		C898E89F1ECA0E7400D81554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E89E1ECA0E7400D81554 /* main.m */; };
 		C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A11ECA0E7400D81554 /* AppDelegate.m */; };
 		C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8A61ECA0E7400D81554 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		C85E131F1ECCFB7000D2B55A /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		C85E13201ECCFB7000D2B55A /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		C85E13221ECCFC4800D2B55A /* LocationControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
+		C85E13231ECD020B00D2B55A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		C898E89A1ECA0E7400D81554 /* Decarbonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decarbonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E89E1ECA0E7400D81554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C898E8A01ECA0E7400D81554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		C898E89C1ECA0E7400D81554 /* Decarbonate */ = {
 			isa = PBXGroup;
 			children = (
+				C85E13231ECD020B00D2B55A /* example.json */,
 				C898E8D21ECA0E8E00D81554 /* Model */,
 				C898E8D11ECA0E8900D81554 /* View */,
 				C898E8D01ECA0E7D00D81554 /* Controller */,
@@ -353,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85E13241ECD020B00D2B55A /* example.json in Resources */,
 				C898E8E21ECA479000D81554 /* Address.storyboard in Resources */,
 				C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */,
 				C898E8AD1ECA0E7400D81554 /* LaunchScreen.storyboard in Resources */,
