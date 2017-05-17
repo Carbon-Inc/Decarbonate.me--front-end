@@ -37,8 +37,6 @@
     [self.eventsVC addChildViewController:self.loginVC];
     [self.eventsVC.view addSubview:self.loginVC.view];
     [self.loginVC didMoveToParentViewController:self.eventsVC];
-    
-    
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
