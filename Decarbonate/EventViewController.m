@@ -16,6 +16,8 @@
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(strong, nonatomic)NSArray *allEvents;
+@property(strong, nonatomic)NSArray *unpaidEvents;
+@property(strong, nonatomic)NSArray *paidEvents;
 
 @end
 
@@ -96,6 +98,17 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.allEvents.count;
+}
+- (IBAction)paidEventSegment:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 @end
