@@ -25,6 +25,27 @@
     
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    self.parseJSON;
+}
+
+-(void)parseJSON{
+    NSString* path  = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
+    
+    NSString* jsonString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *jsonError;
+    id allKeys = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONWritingPrettyPrinted error:&jsonError];
+    
+    
+    
+    for (int i=0; i<[allKeys count]; i++) {
+        NSDictionary *arrayResult = [allKeys objectAtIndex:i];
+        NSLog(@"name=%@",[arrayResult objectForKey:@"category"]);
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
