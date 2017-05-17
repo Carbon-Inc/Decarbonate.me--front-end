@@ -11,7 +11,6 @@
 		B1B404471ECBBAF400277D93 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B404461ECBBAF400277D93 /* AuthViewController.m */; };
 		C85E130F1ECB6B1D00D2B55A /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E130D1ECB6B1D00D2B55A /* EventTableViewCell.m */; };
 		C85E13101ECB6B1D00D2B55A /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85E130E1ECB6B1D00D2B55A /* EventTableViewCell.xib */; };
-		C85E13121ECB6FBA00D2B55A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = C85E13111ECB6FBA00D2B55A /* example.json */; };
 		C85E13151ECB820000D2B55A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13141ECB820000D2B55A /* EventViewController.m */; };
 		C898E89F1ECA0E7400D81554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E89E1ECA0E7400D81554 /* main.m */; };
 		C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A11ECA0E7400D81554 /* AppDelegate.m */; };
@@ -66,7 +65,6 @@
 		C85E130C1ECB6B1D00D2B55A /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		C85E130D1ECB6B1D00D2B55A /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		C85E130E1ECB6B1D00D2B55A /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
-		C85E13111ECB6FBA00D2B55A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		C85E13131ECB820000D2B55A /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		C85E13141ECB820000D2B55A /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		C85E13161ECCE51400D2B55A /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		C898E89C1ECA0E7400D81554 /* Decarbonate */ = {
 			isa = PBXGroup;
 			children = (
-				C85E13111ECB6FBA00D2B55A /* example.json */,
 				C898E8D21ECA0E8E00D81554 /* Model */,
 				C898E8D11ECA0E8900D81554 /* View */,
 				C898E8D01ECA0E7D00D81554 /* Controller */,
@@ -349,7 +346,6 @@
 				C898E8E71ECA5D2F00D81554 /* CarbonCalculator.storyboard in Resources */,
 				C898E8AA1ECA0E7400D81554 /* Assets.xcassets in Resources */,
 				C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */,
-				C85E13121ECB6FBA00D2B55A /* example.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
