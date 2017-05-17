@@ -72,6 +72,16 @@
     
     cell.eventName.text = [event objectForKey:@"name"];
     
+    cell.eventTime.text = [event objectForKey:@"start"];
+    //NSString *startDate = [event objectForKey:@"start"];
+    //NSString *otherDate = [event objectForKey:@"end"];
+    
+    //cell.eventTime.text = [@"%@ - %@", startDate, otherDate];
+    
+    cell.eventCategory.text = [event objectForKey:@"catergory"];
+    
+    cell.eventLocation.text = [event objectForKey:@"address"];
+    
     return cell;
 }
 

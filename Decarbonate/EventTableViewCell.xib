@@ -36,28 +36,32 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DateTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-UM-JIU">
-                        <rect key="frame" x="8" y="172" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateTime" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-UM-JIU">
+                        <rect key="frame" x="8" y="172" width="279" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCF-ai-QfI">
-                        <rect key="frame" x="8" y="206" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCF-ai-QfI">
+                        <rect key="frame" x="8" y="206" width="279" height="11"/>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="9"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="xsc-UM-JIU" firstAttribute="top" secondItem="Hgr-Y1-GHU" secondAttribute="bottom" constant="12" id="35H-Di-nIX"/>
+                    <constraint firstAttribute="trailing" secondItem="yCF-ai-QfI" secondAttribute="trailing" constant="8" id="6T4-tC-gIZ"/>
                     <constraint firstItem="rOB-6p-jaX" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Aao-QZ-Yxb"/>
+                    <constraint firstItem="xsc-UM-JIU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="I1U-pJ-ikd"/>
+                    <constraint firstItem="yCF-ai-QfI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Ryr-RG-uID"/>
                     <constraint firstItem="Hgr-Y1-GHU" firstAttribute="top" secondItem="rOB-6p-jaX" secondAttribute="bottom" constant="15" id="SbL-3K-7IR"/>
                     <constraint firstItem="Hgr-Y1-GHU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="UoW-6X-9OL"/>
+                    <constraint firstItem="xsc-UM-JIU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="aKN-Ee-VPP"/>
                     <constraint firstItem="Hgr-Y1-GHU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="gXm-UW-KEx"/>
                     <constraint firstItem="rOB-6p-jaX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="99" id="kvX-kN-gMo"/>
                     <constraint firstItem="rOB-6p-jaX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="m44-b6-dBD"/>
+                    <constraint firstItem="yCF-ai-QfI" firstAttribute="top" secondItem="xsc-UM-JIU" secondAttribute="bottom" constant="18" id="yeR-ET-FRQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
