@@ -36,7 +36,7 @@
     
     self.locationManager = [[CLLocationManager alloc]init];
     
-    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager requestWhenInUseAuthorization];
     
     [self.locationManager startUpdatingLocation];
     
