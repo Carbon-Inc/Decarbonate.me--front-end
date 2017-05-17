@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-Qy-EmH">
-                                <rect key="frame" x="0.0" y="102" width="375" height="488"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="8DB-zG-0Lw">
@@ -35,13 +35,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LPZ-Nb-WqF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
+                                <segments>
+                                    <segment title="UNPAID"/>
+                                    <segment title="PAID"/>
+                                </segments>
+                                <color key="tintColor" red="0.73568320269999998" green="0.81542241569999996" blue="0.58610481020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="paidEventSegment:" destination="7Di-la-dta" eventType="valueChanged" id="wPH-aA-KFG"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="NLf-Qy-EmH" secondAttribute="trailing" id="5Y4-v3-yMY"/>
-                            <constraint firstItem="NLf-Qy-EmH" firstAttribute="leading" secondItem="FPV-8W-jfL" secondAttribute="leading" id="bK5-N2-W6W"/>
-                            <constraint firstItem="NLf-Qy-EmH" firstAttribute="top" secondItem="AAe-C1-9WH" secondAttribute="bottom" constant="38" id="ytp-gL-BKh"/>
-                            <constraint firstItem="3S4-H5-bCK" firstAttribute="top" secondItem="NLf-Qy-EmH" secondAttribute="bottom" constant="77" id="ztU-Or-k2Z"/>
+                            <constraint firstItem="LPZ-Nb-WqF" firstAttribute="leading" secondItem="FPV-8W-jfL" secondAttribute="leading" id="8Kz-tV-B4O"/>
+                            <constraint firstItem="LPZ-Nb-WqF" firstAttribute="top" secondItem="AAe-C1-9WH" secondAttribute="bottom" id="Cvm-Cn-HMs"/>
+                            <constraint firstItem="NLf-Qy-EmH" firstAttribute="top" secondItem="LPZ-Nb-WqF" secondAttribute="bottom" id="FUC-Pg-Nkt"/>
+                            <constraint firstItem="3S4-H5-bCK" firstAttribute="top" secondItem="NLf-Qy-EmH" secondAttribute="bottom" id="JyR-B4-UMM"/>
+                            <constraint firstAttribute="trailing" secondItem="LPZ-Nb-WqF" secondAttribute="trailing" id="nBG-yT-hOK"/>
+                            <constraint firstItem="NLf-Qy-EmH" firstAttribute="leading" secondItem="FPV-8W-jfL" secondAttribute="leading" id="pbo-sJ-f4b"/>
+                            <constraint firstAttribute="trailing" secondItem="NLf-Qy-EmH" secondAttribute="trailing" id="yFA-tx-lrx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T2Y-HE-L1M"/>
