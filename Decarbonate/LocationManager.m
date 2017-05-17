@@ -38,8 +38,6 @@
     
     [self.locationManager requestWhenInUseAuthorization];
     
-    [self.locationManager startUpdatingLocation];
-    
 }
 
 @end
