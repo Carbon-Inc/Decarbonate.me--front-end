@@ -58,6 +58,12 @@
     //        NSLog(@"Error");
     //    }];
     
+    //UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"Event" bundle:nil];
+    
+    //UIViewController *eventViewController = [secondStoryBoard instantiateInitialViewController];
+    
+    //[self.navigationController pushViewController:eventViewController animated:YES];
+    
     [self getEventbriteToken];
 }
 

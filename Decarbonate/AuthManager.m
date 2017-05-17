@@ -8,7 +8,7 @@
 
 #import "AuthManager.h"
 #import "Credentials.h"
-#import <AFOAuth2Manager/AFOAuth2Manager.h>
+//#import <AFOAuth2Manager/AFOAuth2Manager.h>
 
 @implementation AuthManager
 

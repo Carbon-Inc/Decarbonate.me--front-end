@@ -61,7 +61,6 @@
 /* Begin PBXFileReference section */
 		B1B404401ECBBA4D00277D93 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
 		B1B404411ECBBA4D00277D93 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
-		B1B404441ECBBA9C00277D93 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		B1B404451ECBBAF400277D93 /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
 		B1B404461ECBBAF400277D93 /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		C85E130C1ECB6B1D00D2B55A /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		C85E13111ECB6FBA00D2B55A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		C85E13131ECB820000D2B55A /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		C85E13141ECB820000D2B55A /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		C85E13161ECCE51400D2B55A /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		C898E89A1ECA0E7400D81554 /* Decarbonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decarbonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E89E1ECA0E7400D81554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C898E8A01ECA0E7400D81554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 			children = (
 				C898E8A01ECA0E7400D81554 /* AppDelegate.h */,
 				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
-				B1B404441ECBBA9C00277D93 /* Credentials.h */,
+				C85E13161ECCE51400D2B55A /* Credentials.h */,
 				B1B404401ECBBA4D00277D93 /* AuthManager.h */,
 				B1B404411ECBBA4D00277D93 /* AuthManager.m */,
 			);
