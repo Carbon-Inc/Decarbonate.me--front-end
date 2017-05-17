@@ -26,7 +26,13 @@
     // Do any additional setup after loading the view.
     
     self.tableView.dataSource = self;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    
+    self.tableView.estimatedRowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     [self parseJSON];
 }
 
@@ -50,7 +56,7 @@
     
     for (int i=0; i<[allKeys count]; i++) {
         NSDictionary *arrayResult = [allKeys objectAtIndex:i];
-        NSLog(@"name=%@",[arrayResult objectForKey:@"eventId"]);
+        //NSLog(@"name=%@",[arrayResult objectForKey:@"eventId"]);
         
         
         
@@ -71,6 +77,19 @@
     NSDictionary *event = self.allEvents[indexPath.row];
     
     cell.eventName.text = [event objectForKey:@"name"];
+    cell.eventTime.text = [event objectForKey:@"start"];
+    //NSString *startDate = [event objectForKey:@"start"];
+    //NSString *otherDate = [event objectForKey:@"end"];
+    //cell.eventTime.text = [@"%@ - %@", startDate, otherDate];
+    
+    cell.eventCategory.text = [event objectForKey:@"category"];
+    cell.eventLocation.text = [event objectForKey:@"address"];
+    
+    NSString *imageString = [event objectForKey:@"img"];
+    NSURL *imageURL = [NSURL URLWithString:imageString];
+    NSData *imgData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *eventImage = [[UIImage alloc] initWithData:imgData];
+    cell.eventImage.image = eventImage;
     
     return cell;
 }

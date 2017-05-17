@@ -10,6 +10,7 @@
 
 @interface EventTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *eventImage;
+@property (weak, nonatomic) IBOutlet UIImageView *eventImageFilter;
 @property (weak, nonatomic) IBOutlet UILabel *eventCategory;
 @property (weak, nonatomic) IBOutlet UILabel *eventName;
 @property (weak, nonatomic) IBOutlet UILabel *eventTime;
