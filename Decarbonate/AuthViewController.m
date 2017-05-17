@@ -37,6 +37,28 @@
         NSArray *stringComponents = [navigationAction.request.URL.absoluteString componentsSeparatedByString:@"="];
         NSLog(@"ACCESS TOKEN: %@", stringComponents.lastObject);
         
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+        NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
+        
+        NSURL *urlForAPI = [[NSURL alloc]initWithString:urlString];
+        
+        [[session dataTaskWithURL:urlForAPI completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error receiving response: %@", error.localizedDescription);
+            }
+            
+            if (data) {
+                NSLog(@"Data Received: %@", data);
+            }
+        }]resume];
+        
+        
+//        NSString *post = [NSString stringWithFormat:@"%@", stringComponents.lastObject];
+//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
+//        [request setURL:[NSURL URLWithString:@""]];
+//        [request setHTTPMethod:@"POST"];
+//        [request setHTTPBody:post];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     
