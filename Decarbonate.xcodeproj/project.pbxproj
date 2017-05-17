@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1B010B11ECCF535003DED31 /* AppAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B010B01ECCF535003DED31 /* AppAppearance.m */; };
 		B1B404421ECBBA4D00277D93 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B404411ECBBA4D00277D93 /* AuthManager.m */; };
 		B1B404471ECBBAF400277D93 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B404461ECBBAF400277D93 /* AuthViewController.m */; };
 		C85E130F1ECB6B1D00D2B55A /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E130D1ECB6B1D00D2B55A /* EventTableViewCell.m */; };
@@ -59,6 +60,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B1B010AE1ECCF41F003DED31 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		B1B010AF1ECCF535003DED31 /* AppAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAppearance.h; sourceTree = "<group>"; };
+		B1B010B01ECCF535003DED31 /* AppAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAppearance.m; sourceTree = "<group>"; };
 		B1B404401ECBBA4D00277D93 /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
 		B1B404411ECBBA4D00277D93 /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
 		B1B404451ECBBAF400277D93 /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
@@ -225,6 +229,9 @@
 			children = (
 				C898E8A01ECA0E7400D81554 /* AppDelegate.h */,
 				C898E8A11ECA0E7400D81554 /* AppDelegate.m */,
+				B1B010AF1ECCF535003DED31 /* AppAppearance.h */,
+				B1B010B01ECCF535003DED31 /* AppAppearance.m */,
+				B1B010AE1ECCF41F003DED31 /* Credentials.h */,
 				C85E13161ECCE51400D2B55A /* Credentials.h */,
 				B1B404401ECBBA4D00277D93 /* AuthManager.h */,
 				B1B404411ECBBA4D00277D93 /* AuthManager.m */,
@@ -375,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */,
+				B1B010B11ECCF535003DED31 /* AppAppearance.m in Sources */,
 				C85E13151ECB820000D2B55A /* EventViewController.m in Sources */,
 				C898E8EA1ECA5D4200D81554 /* CarbonCalculatorViewController.m in Sources */,
 				C898E8E51ECA47A600D81554 /* AddressViewController.m in Sources */,

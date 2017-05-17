@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9mo-cI-7Fx" firstAttribute="width" secondItem="vJn-sA-zUH" secondAttribute="width" id="Af0-Tc-MOO"/>
                             <constraint firstItem="vJn-sA-zUH" firstAttribute="centerX" secondItem="ufr-ri-0Gl" secondAttribute="centerX" id="ZRl-Vz-noM"/>
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRk-DP-h2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760.79999999999995" y="-16.641679160419791"/>
+            <point key="canvasLocation" x="1700" y="-16.641679160419791"/>
         </scene>
         <!--Event-->
         <scene sceneID="2Bl-TZ-FgN">
@@ -67,7 +67,7 @@
                 <viewControllerPlaceholder storyboardName="Event" id="xPg-CW-hT3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Th-9t-rTg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660" y="-17"/>
+            <point key="canvasLocation" x="2598.4000000000001" y="-17.091454272863569"/>
         </scene>
     </scenes>
 </document>

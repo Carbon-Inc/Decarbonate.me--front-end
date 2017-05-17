@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AuthManager.h"
+#import "AppAppearance.h"
 #import "EventViewController.h"
 #import "LoginViewController.h"
 
@@ -22,6 +23,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[AppAppearance defaultColor]];
+    [[UINavigationBar appearance] setTranslucent:NO];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
         [self presentAuthController];
     }
