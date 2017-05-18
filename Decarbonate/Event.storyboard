@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HMt-sT-UPP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lcf-sd-zL4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Events-->
         <scene sceneID="hcD-Ke-fQP">
             <objects>
-                <viewController title="Events" id="7Di-la-dta" customClass="EventViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" title="Events" id="7Di-la-dta" customClass="EventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AAe-C1-9WH"/>
                         <viewControllerLayoutGuide type="bottom" id="3S4-H5-bCK"/>
@@ -21,8 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mum-Z7-jlo">
+                                <rect key="frame" x="169.5" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-Qy-EmH">
-                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="8DB-zG-0Lw">
@@ -36,7 +39,7 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LPZ-Nb-WqF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="29"/>
                                 <segments>
                                     <segment title="UNPAID"/>
                                     <segment title="PAID"/>
@@ -49,42 +52,45 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mum-Z7-jlo" firstAttribute="centerX" secondItem="FPV-8W-jfL" secondAttribute="centerX" id="4dI-9S-K5u"/>
                             <constraint firstItem="LPZ-Nb-WqF" firstAttribute="leading" secondItem="FPV-8W-jfL" secondAttribute="leading" id="8Kz-tV-B4O"/>
                             <constraint firstItem="LPZ-Nb-WqF" firstAttribute="top" secondItem="AAe-C1-9WH" secondAttribute="bottom" id="Cvm-Cn-HMs"/>
                             <constraint firstItem="NLf-Qy-EmH" firstAttribute="top" secondItem="LPZ-Nb-WqF" secondAttribute="bottom" id="FUC-Pg-Nkt"/>
                             <constraint firstItem="3S4-H5-bCK" firstAttribute="top" secondItem="NLf-Qy-EmH" secondAttribute="bottom" id="JyR-B4-UMM"/>
                             <constraint firstAttribute="trailing" secondItem="LPZ-Nb-WqF" secondAttribute="trailing" id="nBG-yT-hOK"/>
                             <constraint firstItem="NLf-Qy-EmH" firstAttribute="leading" secondItem="FPV-8W-jfL" secondAttribute="leading" id="pbo-sJ-f4b"/>
+                            <constraint firstItem="mum-Z7-jlo" firstAttribute="centerY" secondItem="FPV-8W-jfL" secondAttribute="centerY" id="xkF-hC-zsa"/>
                             <constraint firstAttribute="trailing" secondItem="NLf-Qy-EmH" secondAttribute="trailing" id="yFA-tx-lrx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T2Y-HE-L1M"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mum-Z7-jlo" id="tdU-2i-u9D"/>
                         <outlet property="tableView" destination="NLf-Qy-EmH" id="Jon-2c-dYV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gr-Yg-Xtz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.8" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2076" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="IWe-fx-tbs">
+        <scene sceneID="k3o-CU-9ce">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HMt-sT-UPP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcf-sd-zL4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lHD-AC-I5G">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y4S-gd-ZGL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7Di-la-dta" kind="relationship" relationship="rootViewController" id="9OQ-zr-Bga"/>
+                        <segue destination="7Di-la-dta" kind="relationship" relationship="rootViewController" id="K2v-3z-s80"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oeg-Ke-ZFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZk-w8-CNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197.59999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1136.8" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

@@ -10,4 +10,9 @@
 
 @interface AuthManager : NSObject
 
++ (instancetype) shared;
+- (void)fetchDataWithCompletion:(void(^)(NSArray* dataObjects))completion;
+
+@property(strong, nonatomic) NSArray *jsonArray;
+
 @end

@@ -28,28 +28,12 @@
     [[UINavigationBar appearance] setBarTintColor:[AppAppearance defaultColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
+
     [[LocationManager shared] requestPermissions];
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
-        [self presentAuthController];
-    }
-    
     return YES;
 }
 
-- (void)presentAuthController {
-     self.eventsVC = (EventViewController*)[[(AppDelegate*)[[UIApplication sharedApplication]delegate] window] rootViewController];
-    self.loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginVIewController"];
-    
-//    [rootController.storyboard instantiateViewControllerWithIdentifier:@"authViewController"];
-    [self.eventsVC addChildViewController:self.loginVC];
-    [self.eventsVC.view addSubview:self.loginVC.view];
-    [self.loginVC didMoveToParentViewController:self.eventsVC];
-}
-
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-//    [AuthManager processOAuthStep1Response:url];
     return YES;
 }
 

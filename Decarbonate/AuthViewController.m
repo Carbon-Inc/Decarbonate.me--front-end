@@ -38,20 +38,24 @@
         NSLog(@"ACCESS TOKEN: %@", stringComponents.lastObject);
         [[NSUserDefaults standardUserDefaults] setObject:stringComponents.lastObject forKey:@"kToken"];
         
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-        NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
-        
-        NSURL *urlForAPI = [[NSURL alloc]initWithString:urlString];
-        
-        [[session dataTaskWithURL:urlForAPI completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"Error receiving response: %@", error.localizedDescription);
-            }
-            
-            if (data) {
-                NSLog(@"Data Received: %@", data);
-            }
-        }]resume];
+//        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+//        NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
+//        
+//        NSURL *urlForAPI = [[NSURL alloc]initWithString:urlString];
+//        
+//        [[session dataTaskWithURL:urlForAPI completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//            if (error) {
+//                NSLog(@"Error receiving response: %@", error.localizedDescription);
+//            }
+//            
+//            if (data) {
+//                
+//                NSError *jsonError;
+//                NSArray *dataObjects = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+//                NSLog(@"%@", dataObjects);
+//                
+//            }
+//        }]resume];
         
         
 //        NSString *post = [NSString stringWithFormat:@"%@", stringComponents.lastObject];
@@ -60,7 +64,7 @@
 //        [request setHTTPMethod:@"POST"];
 //        [request setHTTPBody:post];
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:NO completion:nil];
     }
     
     decisionHandler(WKNavigationActionPolicyAllow);
