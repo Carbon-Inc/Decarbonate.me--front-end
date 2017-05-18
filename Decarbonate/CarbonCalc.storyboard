@@ -54,7 +54,7 @@
                                     <action selector="calculateButtonPressed:" destination="Rh9-hc-03Z" eventType="touchUpInside" id="rk4-Mj-xos"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m9-I6-9E3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m9-I6-9E3">
                                 <rect key="frame" x="113" y="445" width="149" height="30"/>
                                 <color key="backgroundColor" red="0.73725490199999999" green="0.81568627449999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Pay for Carbon Offset">
