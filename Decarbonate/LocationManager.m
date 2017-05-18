@@ -7,7 +7,9 @@
 //
 
 #import "LocationManager.h"
-#import "LocationControllerDelegate.h"
+//#import "LocationControllerDelegate.h"
+
+@import UserNotifications;
 
 @implementation LocationManager
 
@@ -23,11 +25,7 @@
 - (id)init {
     self = [super init];
     
-    if (self){
-        [self requestPermissions];
-    }
-    
-    self.locationManager.delegate = self;
+    _locationManager.delegate = self;
     
     return self;
 }
@@ -36,7 +34,7 @@
     
     self.locationManager = [[CLLocationManager alloc]init];
     
-    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager requestAlwaysAuthorization];
     
 }
 

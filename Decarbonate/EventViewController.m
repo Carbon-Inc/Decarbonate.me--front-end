@@ -10,6 +10,8 @@
 #import "EventTableViewCell.h"
 #import "Event.h"
 
+@import CoreLocation;
+
 @interface EventViewController () <UITableViewDataSource>
 
 //@property(strong, nonatomic)NSArray *allEvents;
@@ -18,7 +20,7 @@
 
 @property(strong, nonatomic)NSMutableArray *unpaidEvents;
 @property(strong, nonatomic)NSMutableArray *paidEvents;
-@property(strong, nonatomic) NSArray *currentDataSource;
+@property(strong, nonatomic)NSArray *currentDataSource;
 
 @end
 
@@ -26,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
     self.unpaidEvents = [[NSMutableArray alloc]init];
@@ -38,8 +41,19 @@
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    
     [self parseJSON];
+    
+    CLLocationManager* myLocationManager = [[CLLocationManager alloc] init];
+    [myLocationManager requestAlwaysAuthorization];
+    
 }
+
+//-(void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    CLLocationManager* myLocationManager = [[CLLocationManager alloc] init];
+//    [myLocationManager requestAlwaysAuthorization];
+//}
 
 -(void)parseJSON{
     

@@ -11,6 +11,8 @@
 #import "Credentials.h"
 #import "AuthViewController.h"
 #import <SafariServices/SafariServices.h>
+#import "LocationManager.h"
+#import "LocationControllerDelegate.h"
 
 @interface LoginViewController () <SFSafariViewControllerDelegate>
 
@@ -33,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //[self requestPermissions];
     
 }
 
