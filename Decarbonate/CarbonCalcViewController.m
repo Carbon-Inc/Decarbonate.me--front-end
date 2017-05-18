@@ -23,6 +23,13 @@
 }
 
 - (IBAction)calculateButtonPressed:(id)sender {
+    NSString *startString = self.startPointTextField.text;
+    NSString *endString = self.endPointTextField.text;
+    CLLocationCoordinate2D startCoor = [self getLocationFromAddressString:startString];
+    CLLocationCoordinate2D endCoor = [self getLocationFromAddressString:endString];
+    
+    CLLocationDistance calcDistance = [self getDistanceFromPoints:&startCoor destination:&endCoor];
+    
 }
 
 - (IBAction)payButtonPressed:(id)sender {
@@ -53,33 +60,17 @@
     
 }
 
--(void) getDistanceFromPoints: (CLLocationCoordinate2D*) source destination: (CLLocationCoordinate2D*) destination {
-    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+-(CLLocationDistance) getDistanceFromPoints: (CLLocationCoordinate2D*) source destination: (CLLocationCoordinate2D*) destination {
     
-    // source and destination are the relevant MKMapItem's
-    request.source = CFBridgingRelease(source);
-    request.destination = CFBridgingRelease(destination);
+    CLLocationCoordinate2D* Location1 = source;
+    CLLocationCoordinate2D* Location2 = destination;
     
-    // Specify the transportation type
-    request.transportType = MKDirectionsTransportTypeAutomobile;
+    CLLocation *originLocation = [[CLLocation alloc] initWithLatitude:Location1->latitude longitude:Location1->longitude];
+    CLLocation *destinationLocation = [[CLLocation alloc] initWithLatitude:Location2->latitude longitude:Location2->longitude];
+    CLLocationDistance distance = [originLocation distanceFromLocation:destinationLocation];
     
-    // If you're open to getting more than one route, requestsAlternateRoutes = YES; else requestsAlternateRoutes = NO;
-    request.requestsAlternateRoutes = YES;
-    
-    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
-    
-    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-        
-        if (!error) {
-            //self.directionsResponse = response;
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
-        
-        //MKRoute *route = self.directionsResponse.routes[currentRoute];
-        //CLLocationDistance distance = route.distance;
-        
-    }];
-    
+    NSLog(@"%f METERS", distance);
+    return distance;
 }
 
 @end
