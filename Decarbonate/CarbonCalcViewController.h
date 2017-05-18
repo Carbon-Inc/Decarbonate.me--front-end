@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface CarbonCalcViewController : UIViewController
+
+@property(strong, nonatomic) Event *selectedEvent;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *transportTypeSegment;
 

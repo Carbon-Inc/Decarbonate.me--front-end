@@ -8,6 +8,7 @@
 
 #import "AuthManager.h"
 #import "Credentials.h"
+
 //#import <AFOAuth2Manager/AFOAuth2Manager.h>
 
 @implementation AuthManager
@@ -52,14 +53,72 @@
     }]resume];
 }
 
-//- (void)postToken {
-//    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
-//    NSURL *url = [NSURL URLWithString:@"https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=5GTVCH7ISZNXR5CSK7"];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-//    
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:token forHTTPHeaderField:<#(nonnull NSString *)#>]
-//}
+- (void)fetchUserEvents {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
+    NSString *stringURL = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
+    
+    NSDictionary *tokenDictionary = @{@"token": token};
+    NSURL *url = [NSURL URLWithString:stringURL];
+        
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+    NSData *tokenData = [NSJSONSerialization dataWithJSONObject:tokenDictionary options:0 error:nil];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:tokenData];
+//    request.HTTPBody = [value dataUsingEncoding:NSUTF8StringEncoding];
+//    [request setValue:value forHTTPHeaderField:@"Authorization"];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) { 
+            NSLog(@"Error Post: %@", error.localizedDescription);
+        }
+        
+        NSLog(@"Response: %@", response);
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        NSLog(@"%@", jsonArray);
+        
+        for (NSDictionary *eventDictionary in jsonArray) {
+            NSLog(@"%@", eventDictionary);
+        }
+    }];
+    [dataTask resume];
+    
+}
+
+- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSString *)distance {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSString *eventDate = event.start;
+//    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/%@/%@", eventDate, distance];
+     NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/2017-05-18/1000"];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+    //    request.HTTPBody = [value dataUsingEncoding:NSUTF8StringEncoding];
+    //    [request setValue:value forHTTPHeaderField:@"Authorization"];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error Post: %@", error.localizedDescription);
+        }
+        
+        NSLog(@"Response: %@", response);
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        NSLog(@"%@", jsonArray);
+        
+//        for (NSDictionary *eventDictionary in jsonArray) {
+//            NSLog(@"%@", eventDictionary);
+//        }
+    }];
+    [dataTask resume];
+    
+}
 
 + (void)processOAuthStep1Response: (NSURL *)url {
     NSLog(@"%@", url);

@@ -7,6 +7,7 @@
 //
 
 #import "CarbonCalcViewController.h"
+#import "AuthManager.h"
 
 @import MapKit;
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@", self.selectedEvent.name);
+    [[AuthManager shared] calculateCarbonFootprintForEvent:self.selectedEvent withDistance:@"1000"];
     [self getLocationFromAddressString:@"2409 141st pl SE, Mill Creek, WA"];
 }
 

@@ -26,6 +26,7 @@
     [super viewWillAppear:animated];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] != nil) {
+        [[AuthManager shared] fetchUserEvents];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
@@ -33,12 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[self requestPermissions];
+//    [self requestPermissions];
     
 }
 
 - (void)getEventbriteToken {
     NSString  *authPath = @"https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=BYIVXD4JETVK43D22T";
+    
     NSURL *authURL = [NSURL URLWithString:authPath];
     
     AuthViewController *authController = [[AuthViewController alloc]init];

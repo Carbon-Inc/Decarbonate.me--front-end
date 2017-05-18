@@ -9,12 +9,13 @@
 #import "EventViewController.h"
 #import "EventTableViewCell.h"
 #import "LoginViewController.h"
+#import "CarbonCalcViewController.h"
 #import "Event.h"
 #import "AuthManager.h"
 
 @import CoreLocation;
 
-@interface EventViewController () <UITableViewDataSource>
+@interface EventViewController () <UITableViewDataSource, UITableViewDelegate>
 
 //@property(strong, nonatomic)NSArray *allEvents;
 
@@ -54,7 +55,8 @@
     self.unpaidEvents = [[NSMutableArray alloc]init];
     self.paidEvents = [[NSMutableArray alloc]init];
     self.tableView.dataSource = self;
-
+    self.tableView.delegate = self;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -94,11 +96,35 @@
     return eventImage;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"CarbonCalcViewController"]) {
+        CarbonCalcViewController *carbonVC = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        carbonVC.selectedEvent = self.currentDataSource[indexPath.row];
+    }
 }
 
+- (IBAction)paidEventSegment:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.currentDataSource = self.unpaidEvents;
+            [self.tableView reloadData];
+            [self.activityIndicator stopAnimating];
+            break;
+        case 1:
+            self.currentDataSource = self.paidEvents;
+            [self.tableView reloadData];
+            [self.activityIndicator stopAnimating];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+#pragma mark - UITableViewDelegate
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"cell";
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier forIndexPath:indexPath];
@@ -122,22 +148,9 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.currentDataSource.count;
 }
-- (IBAction)paidEventSegment:(UISegmentedControl *)sender {
-    switch (sender.selectedSegmentIndex) {
-        case 0:
-            self.currentDataSource = self.unpaidEvents;
-            [self.tableView reloadData];
-            [self.activityIndicator stopAnimating];
-            break;
-        case 1:
-            self.currentDataSource = self.paidEvents;
-            [self.tableView reloadData];
-            [self.activityIndicator stopAnimating];
-            break;
-        default:
-            break;
-    }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"CarbonCalcViewController" sender:nil];
 }
 
 @end
