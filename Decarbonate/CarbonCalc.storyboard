@@ -32,8 +32,9 @@
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDo-7q-oQE">
                                 <rect key="frame" x="132.5" y="104" width="110" height="21"/>
+                                <color key="backgroundColor" red="0.73725490199999999" green="0.81568627449999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRw-50-ned">
@@ -44,8 +45,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWF-if-Iig">
                                 <rect key="frame" x="149.5" y="204" width="76" height="21"/>
+                                <color key="backgroundColor" red="0.73725490199999999" green="0.81568627449999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z35-2u-yD4">
@@ -74,9 +76,24 @@
                                     <action selector="payButtonPressed:" destination="Rh9-hc-03Z" eventType="touchUpInside" id="F64-Y6-3LC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offset Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLt-ay-rs8">
+                                <rect key="frame" x="139" y="304" width="97" height="21"/>
+                                <color key="backgroundColor" red="0.73725490199999999" green="0.81568627449999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1W-cv-nhC">
+                                <rect key="frame" x="166" y="333" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MLt-ay-rs8" firstAttribute="centerX" secondItem="M2h-fU-8Dv" secondAttribute="centerX" id="5XF-xT-sgi"/>
                             <constraint firstItem="j7g-WM-JlS" firstAttribute="leading" secondItem="M2h-fU-8Dv" secondAttribute="leading" id="8no-gg-I7C"/>
                             <constraint firstItem="BRw-50-ned" firstAttribute="centerX" secondItem="M2h-fU-8Dv" secondAttribute="centerX" id="BdP-HC-RxS"/>
                             <constraint firstItem="BRw-50-ned" firstAttribute="top" secondItem="SDo-7q-oQE" secondAttribute="bottom" constant="8" id="DQH-hy-bz9"/>
@@ -91,6 +108,7 @@
                             <constraint firstItem="Z35-2u-yD4" firstAttribute="top" secondItem="NWF-if-Iig" secondAttribute="bottom" constant="8" id="ggn-ma-KbD"/>
                             <constraint firstItem="j7g-WM-JlS" firstAttribute="top" secondItem="M2h-fU-8Dv" secondAttribute="top" id="hYC-cP-gEB"/>
                             <constraint firstItem="SDo-7q-oQE" firstAttribute="top" secondItem="j7g-WM-JlS" secondAttribute="bottom" constant="76" id="iqV-G4-CQ5"/>
+                            <constraint firstItem="MLt-ay-rs8" firstAttribute="top" secondItem="Z35-2u-yD4" secondAttribute="bottom" constant="50" id="t3h-2q-aDR"/>
                             <constraint firstAttribute="trailing" secondItem="j7g-WM-JlS" secondAttribute="trailing" id="wWg-7s-Cal"/>
                             <constraint firstItem="Z35-2u-yD4" firstAttribute="centerX" secondItem="M2h-fU-8Dv" secondAttribute="centerX" id="z8p-Pz-mUn"/>
                         </constraints>
@@ -98,6 +116,7 @@
                     <connections>
                         <outlet property="calculateButton" destination="nWU-d6-51d" id="tNk-cP-kyP"/>
                         <outlet property="endPointLabel" destination="Z35-2u-yD4" id="9qU-9K-K8b"/>
+                        <outlet property="offsetCostLabel" destination="S1W-cv-nhC" id="UNH-27-TdT"/>
                         <outlet property="payButton" destination="9m9-I6-9E3" id="Oap-ok-nOI"/>
                         <outlet property="startPointLabel" destination="BRw-50-ned" id="6e4-na-c8J"/>
                         <outlet property="transportTypeSegment" destination="j7g-WM-JlS" id="vR7-hn-RUx"/>

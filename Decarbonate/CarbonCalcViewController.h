@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *startPointLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endPointLabel;
+@property (weak, nonatomic) IBOutlet UILabel *offsetCostLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
