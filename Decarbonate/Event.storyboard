@@ -63,7 +63,7 @@
                             <constraint firstAttribute="trailing" secondItem="NLf-Qy-EmH" secondAttribute="trailing" id="yFA-tx-lrx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T2Y-HE-L1M"/>
+                    <navigationItem key="navigationItem" title="Events" id="DW7-Ha-crx"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="activityIndicator" destination="mum-Z7-jlo" id="tdU-2i-u9D"/>
@@ -79,7 +79,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcf-sd-zL4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y4S-gd-ZGL">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Y4S-gd-ZGL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

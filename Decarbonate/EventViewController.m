@@ -56,13 +56,13 @@
     self.tableView.dataSource = self;
 
     [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-
-
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     CLLocationManager* myLocationManager = [[CLLocationManager alloc] init];
     [myLocationManager requestAlwaysAuthorization];
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 //-(void)viewDidAppear:(BOOL)animated{

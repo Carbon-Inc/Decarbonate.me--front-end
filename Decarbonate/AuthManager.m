@@ -52,6 +52,15 @@
     }]resume];
 }
 
+//- (void)postToken {
+//    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
+//    NSURL *url = [NSURL URLWithString:@"https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=5GTVCH7ISZNXR5CSK7"];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+//    
+//    [request setHTTPMethod:@"POST"];
+//    [request setValue:token forHTTPHeaderField:<#(nonnull NSString *)#>]
+//}
+
 + (void)processOAuthStep1Response: (NSURL *)url {
     NSLog(@"%@", url);
     NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
