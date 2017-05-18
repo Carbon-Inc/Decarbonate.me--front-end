@@ -41,7 +41,7 @@
                                     <segment title="UNPAID"/>
                                     <segment title="PAID"/>
                                 </segments>
-                                <color key="tintColor" red="0.73568320269999998" green="0.81542241569999996" blue="0.58610481020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.43943434953689575" green="0.58410811424255371" blue="0.34198486804962158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="paidEventSegment:" destination="7Di-la-dta" eventType="valueChanged" id="wPH-aA-KFG"/>
                                 </connections>
@@ -80,7 +80,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcf-sd-zL4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Y4S-gd-ZGL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y4S-gd-ZGL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
