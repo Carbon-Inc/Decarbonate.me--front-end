@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LocationControllerDelegate.h"
+//#import "LocationControllerDelegate.h"
 
 @import CoreLocation;
 
-@interface LocationManager : NSObject
+@interface LocationManager : NSObject <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
-@property (weak, nonatomic) id<LocationControllerDelegate> delegate;
+//@property (weak, nonatomic) id<LocationControllerDelegate> delegate;
 
 + (id)shared;
+
+- (void)requestPermissions;
 
 @end

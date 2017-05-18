@@ -11,6 +11,7 @@
 #import "AppAppearance.h"
 #import "EventViewController.h"
 #import "LoginViewController.h"
+#import "LocationManager.h"
 
 @interface AppDelegate ()
 
@@ -27,7 +28,8 @@
     [[UINavigationBar appearance] setBarTintColor:[AppAppearance defaultColor]];
     [[UINavigationBar appearance] setTranslucent:NO];
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
+
+    [[LocationManager shared] requestPermissions];
     return YES;
 }
 
