@@ -53,4 +53,33 @@
     
 }
 
+-(void) getDistanceFromPoints: (CLLocationCoordinate2D*) source destination: (CLLocationCoordinate2D*) destination {
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    
+    // source and destination are the relevant MKMapItem's
+    request.source = CFBridgingRelease(source);
+    request.destination = CFBridgingRelease(destination);
+    
+    // Specify the transportation type
+    request.transportType = MKDirectionsTransportTypeAutomobile;
+    
+    // If you're open to getting more than one route, requestsAlternateRoutes = YES; else requestsAlternateRoutes = NO;
+    request.requestsAlternateRoutes = YES;
+    
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        
+        if (!error) {
+            //self.directionsResponse = response;
+            NSLog(@"Error: %@", error.localizedDescription);
+        }
+        
+        //MKRoute *route = self.directionsResponse.routes[currentRoute];
+        //CLLocationDistance distance = route.distance;
+        
+    }];
+    
+}
+
 @end
