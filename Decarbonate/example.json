@@ -11,7 +11,7 @@
   "categoryId": "102",
   "__v": 0,
   "transport": null,
-  "paid": false,
+  "paid": true,
   "category": "Science & Technology",
   "img": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F26550798%2F70704071081%2F1%2Foriginal.jpg?s=dcd54539ae4f15c03820480a64729f94",
   "address": "2901 3rd Ave Suite 300, Seattle, WA 98121"

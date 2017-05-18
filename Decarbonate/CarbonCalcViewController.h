@@ -12,8 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *transportTypeSegment;
 
-@property (weak, nonatomic) IBOutlet UILabel *startPointLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endPointLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *startPointTextField;
+@property (weak, nonatomic) IBOutlet UITextField *endPointTextField;
 @property (weak, nonatomic) IBOutlet UILabel *offsetCostLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
