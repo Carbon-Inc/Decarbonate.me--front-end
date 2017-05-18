@@ -8,21 +8,41 @@
 
 #import "EventViewController.h"
 #import "EventTableViewCell.h"
+#import "LoginViewController.h"
 #import "Event.h"
+#import "AuthManager.h"
 
 @interface EventViewController () <UITableViewDataSource>
 
 //@property(strong, nonatomic)NSArray *allEvents;
 
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property(strong, nonatomic)NSMutableArray *unpaidEvents;
 @property(strong, nonatomic)NSMutableArray *paidEvents;
-@property(strong, nonatomic) NSArray *currentDataSource;
+@property(strong, nonatomic)NSArray *currentDataSource;
 
 @end
 
 @implementation EventViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self presentAuthController];
+    
+}
+
+- (void)presentAuthController {
+
+    LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginVIewController"];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
+        [self presentViewController:loginVC animated:YES completion:nil];
+    } else {
+        [self parseJSON];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,30 +58,22 @@
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    [self parseJSON];
 }
 
 -(void)parseJSON{
-    
-    NSString* path  = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
-    
-    NSString* jsonString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    
-    NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSError *jsonError;
-    NSArray *dataObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
-    
-    for (NSDictionary *eventObject in dataObjects) {
-        Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
-        
-        if ([newEvent.paid isEqual:@1]) {
-            [self.paidEvents addObject:newEvent];
-        } else {
-            [self.unpaidEvents addObject:newEvent];
+    [self.activityIndicator startAnimating];
+    [[AuthManager shared]fetchDataWithCompletion:^(NSArray *dataObjects) {
+        for (NSDictionary *eventObject in dataObjects) {
+            Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
+            
+            if ([newEvent.paid isEqual:@1]) {
+                [self.paidEvents addObject:newEvent];
+            } else {
+                [self.unpaidEvents addObject:newEvent];
+            }
         }
-    }
-    [self paidEventSegment:nil];
+        [self paidEventSegment:nil];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,10 +88,6 @@
     
     cell.eventName.text = currentEvent.name;
     cell.eventTime.text = currentEvent.start;
-    //NSString *startDate = [event objectForKey:@"start"];
-    //NSString *otherDate = [event objectForKey:@"end"];
-    //cell.eventTime.text = [@"%@ - %@", startDate, otherDate];
-    
     cell.eventCategory.text = currentEvent.category;
     cell.eventLocation.text = currentEvent.address;
     
@@ -100,6 +108,7 @@
         case 0:
             self.currentDataSource = self.unpaidEvents;
             [self.tableView reloadData];
+            [self.activityIndicator stopAnimating];
             break;
         case 1:
             self.currentDataSource = self.paidEvents;

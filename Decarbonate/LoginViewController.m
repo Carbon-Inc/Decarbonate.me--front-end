@@ -24,10 +24,7 @@
     [super viewWillAppear:animated];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] != nil) {
-        [self removeFromParentViewController];
-        [self.view removeFromSuperview];
         [self dismissViewControllerAnimated:YES completion:nil];
-        
     }
 }
 
@@ -36,44 +33,17 @@
     
 }
 
--(void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
-    [self dismissViewControllerAnimated:true completion:nil];
-}
-
 - (void)getEventbriteToken {
     NSString  *authPath = @"https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=BYIVXD4JETVK43D22T";
     NSURL *authURL = [NSURL URLWithString:authPath];
     
-    //    SFSafariViewController *authVC = [[SFSafariViewController alloc]initWithURL:authURL];
-    //    authVC.delegate = self;
-    //    [self presentViewController:authVC animated:YES completion:nil];
-    
-    //    [[UIApplication sharedApplication] openURL:authURL options:@{} completionHandler:nil];
-    
     AuthViewController *authController = [[AuthViewController alloc]init];
     authController.url = authURL;
-    [self presentViewController:authController animated:YES completion:nil];
+    [self presentViewController:authController animated:NO completion:nil];
     
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
-    //    [ebClient getAuthorizationCode:^(NSString *code) {
-    //        // Run your code here
-    //
-    //    } cancel:^{
-    //        // Session is closed
-    //        NSLog(@"Error");
-    //
-    //    } failure:^(NSError *error) {
-    //        // Session is closed
-    //        NSLog(@"Error");
-    //    }];
-    
-    //UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"Event" bundle:nil];
-    
-    //UIViewController *eventViewController = [secondStoryBoard instantiateInitialViewController];
-    
-    //[self.navigationController pushViewController:eventViewController animated:YES];
     
     [self getEventbriteToken];
 }
