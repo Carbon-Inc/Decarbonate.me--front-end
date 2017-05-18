@@ -17,6 +17,8 @@
 		C85E13211ECCFB7000D2B55A /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13201ECCFB7000D2B55A /* LocationManager.m */; };
 		C85E13241ECD020B00D2B55A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = C85E13231ECD020B00D2B55A /* example.json */; };
 		C85E13281ECD175F00D2B55A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85E13271ECD175F00D2B55A /* MapKit.framework */; };
+		C85E132A1ECE083C00D2B55A /* CarbonCalc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C85E13291ECE083C00D2B55A /* CarbonCalc.storyboard */; };
+		C85E132D1ECE085000D2B55A /* CarbonCalcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E132C1ECE085000D2B55A /* CarbonCalcViewController.m */; };
 		C898E89F1ECA0E7400D81554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E89E1ECA0E7400D81554 /* main.m */; };
 		C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A11ECA0E7400D81554 /* AppDelegate.m */; };
 		C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8A61ECA0E7400D81554 /* Main.storyboard */; };
@@ -28,8 +30,6 @@
 		C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8D81ECA26F800D81554 /* LoginViewController.m */; };
 		C898E8E21ECA479000D81554 /* Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8E11ECA479000D81554 /* Address.storyboard */; };
 		C898E8E51ECA47A600D81554 /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8E41ECA47A600D81554 /* AddressViewController.m */; };
-		C898E8E71ECA5D2F00D81554 /* CarbonCalculator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8E61ECA5D2F00D81554 /* CarbonCalculator.storyboard */; };
-		C898E8EA1ECA5D4200D81554 /* CarbonCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8E91ECA5D4200D81554 /* CarbonCalculatorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +84,9 @@
 		C85E13221ECCFC4800D2B55A /* LocationControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
 		C85E13231ECD020B00D2B55A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		C85E13271ECD175F00D2B55A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C85E13291ECE083C00D2B55A /* CarbonCalc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarbonCalc.storyboard; sourceTree = "<group>"; };
+		C85E132B1ECE085000D2B55A /* CarbonCalcViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonCalcViewController.h; sourceTree = "<group>"; };
+		C85E132C1ECE085000D2B55A /* CarbonCalcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonCalcViewController.m; sourceTree = "<group>"; };
 		C898E89A1ECA0E7400D81554 /* Decarbonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decarbonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E89E1ECA0E7400D81554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C898E8A01ECA0E7400D81554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,9 +107,6 @@
 		C898E8E11ECA479000D81554 /* Address.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Address.storyboard; sourceTree = "<group>"; };
 		C898E8E31ECA47A600D81554 /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
 		C898E8E41ECA47A600D81554 /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
-		C898E8E61ECA5D2F00D81554 /* CarbonCalculator.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CarbonCalculator.storyboard; sourceTree = "<group>"; };
-		C898E8E81ECA5D4200D81554 /* CarbonCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonCalculatorViewController.h; sourceTree = "<group>"; };
-		C898E8E91ECA5D4200D81554 /* CarbonCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonCalculatorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,10 +215,10 @@
 				C898E8D81ECA26F800D81554 /* LoginViewController.m */,
 				C898E8E31ECA47A600D81554 /* AddressViewController.h */,
 				C898E8E41ECA47A600D81554 /* AddressViewController.m */,
-				C898E8E81ECA5D4200D81554 /* CarbonCalculatorViewController.h */,
-				C898E8E91ECA5D4200D81554 /* CarbonCalculatorViewController.m */,
 				C85E13131ECB820000D2B55A /* EventViewController.h */,
 				C85E13141ECB820000D2B55A /* EventViewController.m */,
+				C85E132B1ECE085000D2B55A /* CarbonCalcViewController.h */,
+				C85E132C1ECE085000D2B55A /* CarbonCalcViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -230,8 +230,8 @@
 				C898E8AB1ECA0E7400D81554 /* LaunchScreen.storyboard */,
 				C898E8D51ECA172A00D81554 /* Event.storyboard */,
 				C898E8E11ECA479000D81554 /* Address.storyboard */,
-				C898E8E61ECA5D2F00D81554 /* CarbonCalculator.storyboard */,
 				C85E130E1ECB6B1D00D2B55A /* EventTableViewCell.xib */,
+				C85E13291ECE083C00D2B55A /* CarbonCalc.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -376,8 +376,8 @@
 				C898E8E21ECA479000D81554 /* Address.storyboard in Resources */,
 				C898E8D61ECA172A00D81554 /* Event.storyboard in Resources */,
 				C898E8AD1ECA0E7400D81554 /* LaunchScreen.storyboard in Resources */,
+				C85E132A1ECE083C00D2B55A /* CarbonCalc.storyboard in Resources */,
 				C85E13101ECB6B1D00D2B55A /* EventTableViewCell.xib in Resources */,
-				C898E8E71ECA5D2F00D81554 /* CarbonCalculator.storyboard in Resources */,
 				C898E8AA1ECA0E7400D81554 /* Assets.xcassets in Resources */,
 				C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */,
 			);
@@ -408,7 +408,7 @@
 				C898E8D91ECA26F800D81554 /* LoginViewController.m in Sources */,
 				B1B010B11ECCF535003DED31 /* AppAppearance.m in Sources */,
 				C85E13151ECB820000D2B55A /* EventViewController.m in Sources */,
-				C898E8EA1ECA5D4200D81554 /* CarbonCalculatorViewController.m in Sources */,
+				C85E132D1ECE085000D2B55A /* CarbonCalcViewController.m in Sources */,
 				C898E8E51ECA47A600D81554 /* AddressViewController.m in Sources */,
 				B1B404471ECBBAF400277D93 /* AuthViewController.m in Sources */,
 				C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */,
