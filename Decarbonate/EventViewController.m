@@ -109,6 +109,13 @@
     cell.eventCategory.text = currentEvent.category;
     cell.eventLocation.text = currentEvent.address;
     cell.eventImage.image = currentEvent.eventImage;
+    
+    if (currentEvent.paid == false) {
+        cell.eventOffsetStatus.text = @"Paid";
+    } else {
+        cell.eventOffsetStatus.text = @"Unpaid";
+    }
+    
     return cell;
 }
 
