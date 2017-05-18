@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B1B010B11ECCF535003DED31 /* AppAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B010B01ECCF535003DED31 /* AppAppearance.m */; };
-		B1B010B31ECD02C8003DED31 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = B1B010B21ECD02C8003DED31 /* example.json */; };
 		B1B010B61ECD032C003DED31 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B010B51ECD032C003DED31 /* Event.m */; };
 		B1B404421ECBBA4D00277D93 /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B404411ECBBA4D00277D93 /* AuthManager.m */; };
 		B1B404471ECBBAF400277D93 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B404461ECBBAF400277D93 /* AuthViewController.m */; };
@@ -17,6 +16,7 @@
 		C85E13151ECB820000D2B55A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13141ECB820000D2B55A /* EventViewController.m */; };
 		C85E13211ECCFB7000D2B55A /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85E13201ECCFB7000D2B55A /* LocationManager.m */; };
 		C85E13241ECD020B00D2B55A /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = C85E13231ECD020B00D2B55A /* example.json */; };
+		C85E13281ECD175F00D2B55A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85E13271ECD175F00D2B55A /* MapKit.framework */; };
 		C898E89F1ECA0E7400D81554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E89E1ECA0E7400D81554 /* main.m */; };
 		C898E8A21ECA0E7400D81554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C898E8A11ECA0E7400D81554 /* AppDelegate.m */; };
 		C898E8A81ECA0E7400D81554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C898E8A61ECA0E7400D81554 /* Main.storyboard */; };
@@ -83,6 +83,7 @@
 		C85E13201ECCFB7000D2B55A /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		C85E13221ECCFC4800D2B55A /* LocationControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationControllerDelegate.h; sourceTree = "<group>"; };
 		C85E13231ECD020B00D2B55A /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		C85E13271ECD175F00D2B55A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C898E89A1ECA0E7400D81554 /* Decarbonate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decarbonate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C898E89E1ECA0E7400D81554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C898E8A01ECA0E7400D81554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85E13281ECD175F00D2B55A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +138,7 @@
 		B104B02B1ECB6AAD00EF940F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C85E13271ECD175F00D2B55A /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -324,6 +327,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 77479ZW9G2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					C898E8B21ECA0E7400D81554 = {
 						CreatedOnToolsVersion = 8.3.1;

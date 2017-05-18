@@ -36,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //[self requestPermissions];
+    
 }
 
 -(void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
