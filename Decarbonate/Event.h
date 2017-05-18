@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface Event : NSObject
 
@@ -23,6 +24,7 @@
 @property(strong, nonatomic)NSString *category;
 @property(strong, nonatomic)NSString *img;
 @property(strong, nonatomic)NSString *address;
+@property(strong, nonatomic)UIImage *eventImage;
 
 -(instancetype)initWithDictionary:(NSDictionary *)json;
 

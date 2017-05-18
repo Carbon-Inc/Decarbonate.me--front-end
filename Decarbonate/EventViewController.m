@@ -76,7 +76,7 @@
     [[AuthManager shared]fetchDataWithCompletion:^(NSArray *dataObjects) {
         for (NSDictionary *eventObject in dataObjects) {
             Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
-
+            newEvent.eventImage = [self getImageFromURL:newEvent.img];
             if ([newEvent.paid isEqual:@1]) {
                 [self.paidEvents addObject:newEvent];
             } else {
@@ -85,6 +85,13 @@
         }
         [self paidEventSegment:nil];
     }];
+}
+
+- (UIImage *)getImageFromURL:(NSString *)urlString {
+    NSURL *imageURL = [NSURL URLWithString:urlString];
+    NSData *imgData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *eventImage = [[UIImage alloc] initWithData:imgData];
+    return eventImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,13 +108,7 @@
     cell.eventTime.text = currentEvent.start;
     cell.eventCategory.text = currentEvent.category;
     cell.eventLocation.text = currentEvent.address;
-
-    NSString *imageString = currentEvent.img;
-    NSURL *imageURL = [NSURL URLWithString:imageString];
-    NSData *imgData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *eventImage = [[UIImage alloc] initWithData:imgData];
-    cell.eventImage.image = eventImage;
-
+    cell.eventImage.image = currentEvent.eventImage;
     return cell;
 }
 
@@ -124,6 +125,7 @@
         case 1:
             self.currentDataSource = self.paidEvents;
             [self.tableView reloadData];
+            [self.activityIndicator stopAnimating];
             break;
         default:
             break;
