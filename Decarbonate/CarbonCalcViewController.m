@@ -34,6 +34,12 @@
     self.calculateButton.layer.cornerRadius = self.calculateButton.bounds.size.height / 2;
     self.calculateButton.layer.masksToBounds = YES;
     self.endPointTextField.text = self.selectedEvent.address;
+    
+    [self.payButton setTitle:[NSString stringWithFormat:@"Pay Offset: %@", self.offsetCostLabel.text] forState:normal];
+    self.payButton.layer.cornerRadius = self.payButton.bounds.size.height / 2;
+    self.payButton.layer.masksToBounds = YES;
+    self.payButton.enabled = NO;
+    self.payButton.alpha = 0.5;
 }
 
 - (IBAction)calculateButtonPressed:(id)sender {
@@ -58,10 +64,14 @@
         NSLog(@"%@", dataObject[@"price"]);
         self.offsetCostLabel.text = [NSString stringWithFormat:@"$%@", dataObject[@"price"]];
         self.carbonFootprintLabel.text = [NSString stringWithFormat:@"%@ lbs", dataObject[@"footprint"]];
+        [self.payButton setTitle:[NSString stringWithFormat:@"Pay Offset: $%@", dataObject[@"price"]] forState:normal];
+        self.payButton.enabled = YES;
+        self.payButton.alpha = 1.0;
     }];
 }
 
 - (IBAction)payButtonPressed:(UIButton *)sender {
+    
 }
 
 -(CLLocationCoordinate2D) getLocationFromAddressString: (NSString*) addressStr {
