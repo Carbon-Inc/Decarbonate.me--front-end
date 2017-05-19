@@ -8,6 +8,7 @@
 
 #import "AuthManager.h"
 #import "Credentials.h"
+
 //#import <AFOAuth2Manager/AFOAuth2Manager.h>
 
 @implementation AuthManager
@@ -30,36 +31,72 @@
     return self;
 }
 
-- (void)fetchDataWithCompletion:(void(^)(NSArray* dataObjects))completion {
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
+- (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
+    NSString *stringURL = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
     
-    NSURL *urlForAPI = [[NSURL alloc]initWithString:urlString];
-
+    NSDictionary *tokenDictionary = @{@"token": token};
+    NSURL *url = [NSURL URLWithString:stringURL];
+        
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     
-    [[session dataTaskWithURL:urlForAPI completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error receiving response: %@", error.localizedDescription);
+    [request setHTTPMethod:@"POST"];
+    NSData *tokenData = [NSJSONSerialization dataWithJSONObject:tokenDictionary options:0 error:nil];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:tokenData];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) { 
+            NSLog(@"Error Post: %@", error.localizedDescription);
         }
         
-        if (data) {
-            NSError *jsonError;
-            NSArray *dataObjects = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(dataObjects);
-            });
-        }
-    }]resume];
+        NSLog(@"Response: %@", response);
+        NSError *jsonError;
+        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        NSLog(@"%@", jsonArray);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(jsonArray);
+        });
+    }];
+    [dataTask resume];
+    
 }
 
-//- (void)postToken {
-//    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
-//    NSURL *url = [NSURL URLWithString:@"https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=5GTVCH7ISZNXR5CSK7"];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-//    
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:token forHTTPHeaderField:<#(nonnull NSString *)#>]
-//}
+- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSNumber *)distance completion:(void(^)(NSDictionary* dataObject))completion {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSString *eventDate = event.start;
+    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/%@/%@", eventDate, distance];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSLog(@"URLSTRING: %@", urlString);
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error Post: %@", error.localizedDescription);
+        }
+        
+        NSLog(@"Response: %@", response);
+        NSError *jsonError;
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(jsonDictionary);
+        });
+        
+//        for (NSDictionary *eventDictionary in jsonArray) {
+//            NSLog(@"%@", eventDictionary);
+//        }
+    }];
+    [dataTask resume];
+    
+}
 
 + (void)processOAuthStep1Response: (NSURL *)url {
     NSLog(@"%@", url);

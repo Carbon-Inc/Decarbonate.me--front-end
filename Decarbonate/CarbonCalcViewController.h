@@ -7,17 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface CarbonCalcViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *transportTypeSegment;
-
-
-@property (weak, nonatomic) IBOutlet UITextField *startPointTextField;
-@property (weak, nonatomic) IBOutlet UITextField *endPointTextField;
-@property (weak, nonatomic) IBOutlet UILabel *offsetCostLabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *calculateButton;
-@property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property(strong, nonatomic) Event *selectedEvent;
 
 @end

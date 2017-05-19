@@ -21,6 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-event" translatesAutoresizingMaskIntoConstraints="NO" id="Msg-Dh-EV1">
+                                <rect key="frame" x="-1" y="-1" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJn-sA-zUH">
                                 <rect key="frame" x="97" y="318" width="180" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,25 +34,15 @@
                                     <action selector="loginButtonPressed:" destination="Gb5-af-QUe" eventType="touchUpInside" id="1H3-6w-H30"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mo-cI-7Fx">
-                                <rect key="frame" x="97" y="390" width="180" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="TEST BUTTON">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xPg-CW-hT3" kind="presentation" id="NIT-2n-p1w"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="9mo-cI-7Fx" firstAttribute="width" secondItem="vJn-sA-zUH" secondAttribute="width" id="Af0-Tc-MOO"/>
+                            <constraint firstItem="Msg-Dh-EV1" firstAttribute="centerY" secondItem="vJn-sA-zUH" secondAttribute="centerY" id="KnG-WI-idW"/>
+                            <constraint firstItem="Msg-Dh-EV1" firstAttribute="height" secondItem="ufr-ri-0Gl" secondAttribute="height" id="ZCN-ew-Wyx"/>
                             <constraint firstItem="vJn-sA-zUH" firstAttribute="centerX" secondItem="ufr-ri-0Gl" secondAttribute="centerX" id="ZRl-Vz-noM"/>
-                            <constraint firstItem="9mo-cI-7Fx" firstAttribute="centerX" secondItem="ufr-ri-0Gl" secondAttribute="centerX" id="dOI-Nl-dSZ"/>
+                            <constraint firstItem="Msg-Dh-EV1" firstAttribute="width" secondItem="ufr-ri-0Gl" secondAttribute="width" id="cwR-M7-x81"/>
                             <constraint firstItem="vJn-sA-zUH" firstAttribute="centerY" secondItem="ufr-ri-0Gl" secondAttribute="centerY" id="dlk-Dp-Nei"/>
-                            <constraint firstItem="9mo-cI-7Fx" firstAttribute="top" secondItem="vJn-sA-zUH" secondAttribute="bottom" constant="42" id="lAz-u9-LoN"/>
-                            <constraint firstItem="9mo-cI-7Fx" firstAttribute="height" secondItem="vJn-sA-zUH" secondAttribute="height" id="vjx-oD-1kk"/>
+                            <constraint firstItem="Msg-Dh-EV1" firstAttribute="centerX" secondItem="vJn-sA-zUH" secondAttribute="centerX" id="zU7-k6-mHf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kal-2D-wRA"/>
@@ -70,4 +63,7 @@
             <point key="canvasLocation" x="2598.4000000000001" y="-17.091454272863569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login-event" width="4080" height="2233"/>
+    </resources>
 </document>
