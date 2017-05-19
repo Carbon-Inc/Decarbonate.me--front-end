@@ -11,6 +11,8 @@
 
 @interface AuthManager : NSObject
 
+@property(strong, nonatomic)NSMutableArray *allEvents;
+
 + (instancetype)shared;
 - (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion;
 

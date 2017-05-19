@@ -28,6 +28,9 @@
 
 @implementation CarbonCalcViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.carbonFootprintLabel.text = @"0 lbs";
@@ -66,9 +69,10 @@
     [[AuthManager shared]calculateCarbonFootprintForEvent:self.selectedEvent transportation: self.selectedTransportation withDistance:distance completion:^(NSDictionary *dataObject) {
         NSLog(@"%@", dataObject);
         NSLog(@"%@", dataObject[@"price"]);
-        self.offsetCostLabel.text = [NSString stringWithFormat:@"$%@", dataObject[@"price"]];
+        NSNumber *price = dataObject[@"price"];
+        self.offsetCostLabel.text = [NSString stringWithFormat:@"$%.2f", [price floatValue]];
         self.carbonFootprintLabel.text = [NSString stringWithFormat:@"%@ lbs", dataObject[@"footprint"]];
-        [self.payButton setTitle:[NSString stringWithFormat:@"Pay Offset: $%@", dataObject[@"price"]] forState:normal];
+        [self.payButton setTitle:[NSString stringWithFormat:@"Pay Offset: $%.2f", [price floatValue]] forState:normal];
         self.payButton.enabled = YES;
         self.payButton.alpha = 1.0;
     }];
@@ -93,7 +97,9 @@
 - (IBAction)payButtonPressed:(UIButton *)sender {
     NSURL *url = [NSURL URLWithString:@"https://www.terrapass.com/product/individuals-families"];
     SFSafariViewController *safariVC = [[SFSafariViewController alloc]initWithURL:url];
-    [self presentViewController:safariVC animated:YES completion:nil];
+    [self presentViewController:safariVC animated:YES completion:^{
+        self.selectedEvent.paid = @1;
+    }];
 }
 
 -(CLLocationCoordinate2D) getLocationFromAddressString: (NSString*) addressStr {

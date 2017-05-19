@@ -29,23 +29,51 @@
 @end
 
 @implementation EventViewController
+//-(void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"allEvents.txt"];
+//    NSArray *allEvents = [AuthManager shared].allEvents;
+//    
+//    if ([self.selectedEvent.paid isEqual:@1]) {
+//        NSLog(@"ALl events: %@",allEvents);
+//        for (Event *event in allEvents) {
+//            NSLog(@"%@", event.paid);
+//        }
+//        [NSKeyedArchiver archiveRootObject:[AuthManager shared].allEvents toFile:appFile];
+//    }
+//}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"allEvents.txt"];
+//    NSArray *events = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+//
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] != nil) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        NSLog(@"%@", [self.tableView indexPathForSelectedRow]);
+//        Event *selectedEvent = [events objectAtIndex:indexPath.row];
+//        if ([selectedEvent.paid isEqual:@1]) {
+//            [NSKeyedArchiver archiveRootObject:[AuthManager shared].allEvents toFile:appFile];
+//        }
+//    }
+    [self presentAuthController];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    
-    self.unpaidEvents = [[NSMutableArray alloc]init];
-    self.paidEvents = [[NSMutableArray alloc]init];
+
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EventTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    [self presentAuthController];
-    
+
     CLLocationManager* myLocationManager = [[CLLocationManager alloc] init];
     [myLocationManager requestAlwaysAuthorization];
     
@@ -53,29 +81,30 @@
 }
 
 - (void)presentAuthController {
-
     LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginVIewController"];
 
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
         [self presentViewController:loginVC animated:YES completion:nil];
     } else {
-
-        [[AuthManager shared] fetchUserEventsWithCompletion:^(NSArray *dataObjects) {
-            for (NSDictionary *eventObject in dataObjects) {
-                Event *newEvent = [[Event alloc]initWithDictionary:eventObject];
-                
-                if (newEvent != nil) {
-                    newEvent.eventImage = [self getImageFromURL:newEvent.img];
-                    if ([newEvent.paid isEqual:@1]) {
-                        [self.paidEvents addObject:newEvent];
-                    } else {
-                        [self.unpaidEvents addObject:newEvent];
-                    }
-                }
+        if (self.unpaidEvents == nil) {
+            [self.activityIndicator startAnimating];
+        }
+        self.unpaidEvents = [[NSMutableArray alloc]init];
+        self.paidEvents = [[NSMutableArray alloc]init];
+        
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString *documentsDirectory = [paths objectAtIndex:0];
+//        NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"allEvents.txt"];
+//        NSArray *events = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+        
+        for (Event *event in [AuthManager shared].allEvents) {
+            if ([event.paid isEqual:@1]) {
+                [self.paidEvents addObject:event];
+            } else {
+                [self.unpaidEvents addObject:event];
             }
-            
-            [self paidEventSegment:nil];
-        }];
+        }
+        [self paidEventSegment:nil];
     }
 }
 
@@ -94,6 +123,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         carbonVC.selectedEvent = self.currentDataSource[indexPath.row];
     }
+}
+- (IBAction)logoutButtonPressed:(UIBarButtonItem *)sender {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"kToken"];
+    [self presentAuthController];
 }
 
 - (IBAction)paidEventSegment:(UISegmentedControl *)sender {
