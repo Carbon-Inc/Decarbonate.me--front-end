@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,8 +26,12 @@
                                 <rect key="frame" x="-1" y="-1" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJn-sA-zUH">
-                                <rect key="frame" x="97" y="318" width="180" height="30"/>
+                                <rect key="frame" x="37" y="283" width="300" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="wj2-Lo-8oj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="LOGIN WITH EVENTBRITE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -34,19 +39,26 @@
                                     <action selector="loginButtonPressed:" destination="Gb5-af-QUe" eventType="touchUpInside" id="1H3-6w-H30"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PAB-o5-jK7">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="vJn-sA-zUH" firstAttribute="width" secondItem="Msg-Dh-EV1" secondAttribute="width" multiplier="0.8" id="GZW-RU-fBj"/>
                             <constraint firstItem="Msg-Dh-EV1" firstAttribute="centerY" secondItem="vJn-sA-zUH" secondAttribute="centerY" id="KnG-WI-idW"/>
                             <constraint firstItem="Msg-Dh-EV1" firstAttribute="height" secondItem="ufr-ri-0Gl" secondAttribute="height" id="ZCN-ew-Wyx"/>
+                            <constraint firstItem="PAB-o5-jK7" firstAttribute="centerX" secondItem="ufr-ri-0Gl" secondAttribute="centerX" id="ZNq-bH-Pcv"/>
                             <constraint firstItem="vJn-sA-zUH" firstAttribute="centerX" secondItem="ufr-ri-0Gl" secondAttribute="centerX" id="ZRl-Vz-noM"/>
                             <constraint firstItem="Msg-Dh-EV1" firstAttribute="width" secondItem="ufr-ri-0Gl" secondAttribute="width" id="cwR-M7-x81"/>
                             <constraint firstItem="vJn-sA-zUH" firstAttribute="centerY" secondItem="ufr-ri-0Gl" secondAttribute="centerY" id="dlk-Dp-Nei"/>
+                            <constraint firstItem="PAB-o5-jK7" firstAttribute="centerY" secondItem="ufr-ri-0Gl" secondAttribute="centerY" id="xfQ-cw-F6K"/>
                             <constraint firstItem="Msg-Dh-EV1" firstAttribute="centerX" secondItem="vJn-sA-zUH" secondAttribute="centerX" id="zU7-k6-mHf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kal-2D-wRA"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="PAB-o5-jK7" id="JLY-d3-EBB"/>
                         <outlet property="loginWithEventbriteButton" destination="vJn-sA-zUH" id="nfy-gM-ERc"/>
                     </connections>
                 </viewController>

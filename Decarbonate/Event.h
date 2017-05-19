@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface Event : NSObject
+@interface Event : NSObject <NSCoding>
 
-@property(strong, nonatomic)NSString *id;
+@property(strong, nonatomic)NSString *objectID;
 @property(strong, nonatomic)NSString *name;
 @property(strong, nonatomic)NSString *eventDescription;
 @property(strong, nonatomic)NSString *start;

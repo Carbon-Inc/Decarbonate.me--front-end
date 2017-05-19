@@ -14,4 +14,8 @@
     return [UIColor colorWithRed:188.0/255.0 green:208.0/255.0 blue:149.0/255.0 alpha:1.0];
 }
 
++(UIColor *)defaultColorWithAlpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:188.0/255.0 green:208.0/255.0 blue:149.0/255.0 alpha:alpha];
+}
+
 @end

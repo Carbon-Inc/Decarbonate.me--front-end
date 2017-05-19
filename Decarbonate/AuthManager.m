@@ -26,7 +26,7 @@
     self = [super init];
     
     if (self) {
-        
+        _allEvents = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -63,14 +63,13 @@
         });
     }];
     [dataTask resume];
-    
 }
 
-- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSNumber *)distance completion:(void(^)(NSDictionary* dataObject))completion {
+- (void)calculateCarbonFootprintForEvent:(Event *)event transportation:(NSString *)transportation withDistance:(NSNumber *)distance completion:(void(^)(NSDictionary* dataObject))completion {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSString *eventDate = event.start;
-    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/%@/%@", eventDate, distance];
+    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/%@/%@/%@", transportation, eventDate, distance];
     NSURL *url = [NSURL URLWithString:urlString];
     NSLog(@"URLSTRING: %@", urlString);
     
@@ -89,27 +88,57 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(jsonDictionary);
         });
-        
-//        for (NSDictionary *eventDictionary in jsonArray) {
-//            NSLog(@"%@", eventDictionary);
-//        }
     }];
     [dataTask resume];
     
 }
 
-+ (void)processOAuthStep1Response: (NSURL *)url {
-    NSLog(@"%@", url);
-    NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
-    NSString *code;
-    NSArray *queryItems = components.queryItems;
-    for (NSURLQueryItem *queryItem in queryItems) {
-        if ([queryItem.name.lowercaseString  isEqual: @"code"]) {
-            code = queryItem.value;
-        }
-    }
-    
-    NSLog(@"%@", code);
-}
+//- (void)updateEventPayState:(Event *)event {
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+//    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
+//    NSString *stringURL = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
+//    
+//    NSDictionary *tokenDictionary = @{@"token": token};
+//    NSURL *url = [NSURL URLWithString:stringURL];
+//    
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+//    
+//    [request setHTTPMethod:@"POST"];
+//    NSData *tokenData = [NSJSONSerialization dataWithJSONObject:tokenDictionary options:0 error:nil];
+//    
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request setHTTPBody:tokenData];
+//    
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"Error Post: %@", error.localizedDescription);
+//        }
+//        
+//        NSLog(@"Response: %@", response);
+//        NSError *jsonError;
+//        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+//        NSLog(@"%@", jsonArray);
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            completion(jsonArray);
+//        });
+//    }];
+//    [dataTask resume];
+//}
+
+//+ (void)processOAuthStep1Response: (NSURL *)url {
+//    NSLog(@"%@", url);
+//    NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
+//    NSString *code;
+//    NSArray *queryItems = components.queryItems;
+//    for (NSURLQueryItem *queryItem in queryItems) {
+//        if ([queryItem.name.lowercaseString  isEqual: @"code"]) {
+//            code = queryItem.value;
+//        }
+//    }
+//    
+//    NSLog(@"%@", code);
+//}
 
 @end

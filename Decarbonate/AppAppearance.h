@@ -12,5 +12,6 @@
 @interface AppAppearance : NSObject
 
 +(UIColor *)defaultColor;
++(UIColor *)defaultColorWithAlpha:(CGFloat)alpha;
 
 @end
