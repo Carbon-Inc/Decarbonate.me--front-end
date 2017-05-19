@@ -29,44 +29,15 @@
 @end
 
 @implementation EventViewController
-//-(void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"allEvents.txt"];
-//    NSArray *allEvents = [AuthManager shared].allEvents;
-//    
-//    if ([self.selectedEvent.paid isEqual:@1]) {
-//        NSLog(@"ALl events: %@",allEvents);
-//        for (Event *event in allEvents) {
-//            NSLog(@"%@", event.paid);
-//        }
-//        [NSKeyedArchiver archiveRootObject:[AuthManager shared].allEvents toFile:appFile];
-//    }
-//}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"allEvents.txt"];
-//    NSArray *events = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
-//
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] != nil) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSLog(@"%@", [self.tableView indexPathForSelectedRow]);
-//        Event *selectedEvent = [events objectAtIndex:indexPath.row];
-//        if ([selectedEvent.paid isEqual:@1]) {
-//            [NSKeyedArchiver archiveRootObject:[AuthManager shared].allEvents toFile:appFile];
-//        }
-//    }
     [self presentAuthController];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
-
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     

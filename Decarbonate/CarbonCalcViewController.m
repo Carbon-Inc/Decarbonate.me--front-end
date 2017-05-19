@@ -93,6 +93,9 @@
             break;
     }
 }
+- (IBAction)tappedGesture:(id)sender {
+    [[self view] endEditing:YES];
+}
 
 - (IBAction)payButtonPressed:(UIButton *)sender {
     NSURL *url = [NSURL URLWithString:@"https://www.terrapass.com/product/individuals-families"];
