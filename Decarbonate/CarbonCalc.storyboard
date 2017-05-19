@@ -66,6 +66,9 @@
                                     <segment title="Plane"/>
                                 </segments>
                                 <color key="tintColor" red="0.73725490196078436" green="0.81568627450980391" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segementedControlAction:" destination="Rh9-hc-03Z" eventType="valueChanged" id="6yg-UW-hlS"/>
+                                </connections>
                             </segmentedControl>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Pu-tZ-i96">
                                 <rect key="frame" x="0.0" y="92" width="375" height="133.5"/>
@@ -160,7 +163,7 @@
                         <outlet property="offsetCostLabel" destination="S1W-cv-nhC" id="UNH-27-TdT"/>
                         <outlet property="payButton" destination="X6n-pZ-l2l" id="H20-hi-Ckt"/>
                         <outlet property="startPointTextField" destination="3Pk-Tr-17M" id="zIN-Iw-xnq"/>
-                        <outlet property="transportTypeSegment" destination="j7g-WM-JlS" id="vR7-hn-RUx"/>
+                        <outlet property="transportTypeSegment" destination="j7g-WM-JlS" id="40A-gc-H8O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3R-mg-Rub" userLabel="First Responder" sceneMemberID="firstResponder"/>

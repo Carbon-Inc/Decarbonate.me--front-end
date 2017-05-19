@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *carbonFootprintLabel;
 @property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property(strong, nonatomic) NSString *selectedTransportation;
 
 @end
 
@@ -41,6 +42,8 @@
     self.payButton.layer.masksToBounds = YES;
     self.payButton.enabled = NO;
     self.payButton.alpha = 0.5;
+    
+    [self segementedControlAction:self.transportTypeSegment];
 }
 
 - (IBAction)calculateButtonPressed:(id)sender {
@@ -60,7 +63,7 @@
     
     CLLocationDistance calcDistance = [self getDistanceFromPoints:&startCoor destination:&endCoor];
     NSNumber *distance = [NSNumber numberWithInt:calcDistance / 1000];
-    [[AuthManager shared]calculateCarbonFootprintForEvent:self.selectedEvent withDistance:distance completion:^(NSDictionary *dataObject) {
+    [[AuthManager shared]calculateCarbonFootprintForEvent:self.selectedEvent transportation: self.selectedTransportation withDistance:distance completion:^(NSDictionary *dataObject) {
         NSLog(@"%@", dataObject);
         NSLog(@"%@", dataObject[@"price"]);
         self.offsetCostLabel.text = [NSString stringWithFormat:@"$%@", dataObject[@"price"]];
@@ -69,6 +72,22 @@
         self.payButton.enabled = YES;
         self.payButton.alpha = 1.0;
     }];
+}
+
+- (IBAction)segementedControlAction:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.selectedTransportation = @"automobile";
+            break;
+        case 1:
+            self.selectedTransportation = @"bus";
+            break;
+        case 2:
+            self.selectedTransportation = @"plane";
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)payButtonPressed:(UIButton *)sender {

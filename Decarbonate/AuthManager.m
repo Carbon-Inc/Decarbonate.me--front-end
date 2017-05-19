@@ -66,11 +66,11 @@
     
 }
 
-- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSNumber *)distance completion:(void(^)(NSDictionary* dataObject))completion {
+- (void)calculateCarbonFootprintForEvent:(Event *)event transportation:(NSString *)transportation withDistance:(NSNumber *)distance completion:(void(^)(NSDictionary* dataObject))completion {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSString *eventDate = event.start;
-    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/%@/%@", eventDate, distance];
+    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/%@/%@/%@", transportation, eventDate, distance];
     NSURL *url = [NSURL URLWithString:urlString];
     NSLog(@"URLSTRING: %@", urlString);
     

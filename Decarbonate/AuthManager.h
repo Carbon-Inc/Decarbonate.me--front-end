@@ -15,6 +15,7 @@
 - (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion;
 
 - (void)calculateCarbonFootprintForEvent:(Event *)event
+                          transportation:(NSString *)transportation
                             withDistance:(NSNumber *)distance
                               completion:(void(^)(NSDictionary* dataObject))completion;
 
