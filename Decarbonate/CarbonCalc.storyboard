@@ -114,6 +114,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3Pu-tZ-i96" firstAttribute="height" secondItem="M2h-fU-8Dv" secondAttribute="height" multiplier="0.2" id="304-DN-Qxa"/>
                             <constraint firstItem="nWU-d6-51d" firstAttribute="width" secondItem="M2h-fU-8Dv" secondAttribute="width" multiplier="0.4" id="3Uv-L2-Mk5"/>
@@ -153,6 +154,9 @@
                             <constraint firstItem="X6n-pZ-l2l" firstAttribute="width" secondItem="nWU-d6-51d" secondAttribute="width" id="x6x-it-hee"/>
                             <constraint firstItem="NWF-if-Iig" firstAttribute="top" secondItem="3Pk-Tr-17M" secondAttribute="bottom" constant="20" id="yN8-m8-ZRv"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="A59-Zg-a6h" appends="YES" id="TsM-jD-ObA"/>
+                        </connections>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -167,6 +171,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3R-mg-Rub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="A59-Zg-a6h">
+                    <connections>
+                        <action selector="tappedGesture:" destination="Rh9-hc-03Z" id="khR-hn-lBR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="139.880059970015"/>
         </scene>
