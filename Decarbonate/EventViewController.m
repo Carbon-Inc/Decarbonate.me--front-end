@@ -43,7 +43,20 @@
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
         [self presentViewController:loginVC animated:YES completion:nil];
     } else {
-        [self parseJSON];
+//        [self parseJSON];
+        [[AuthManager shared] fetchUserEventsWithCompletion:^(NSArray *dataObjects) {
+            for (NSDictionary *eventObject in dataObjects) {
+                Event *newEvent = [[Event alloc]initWithDictionary:eventObject];
+                newEvent.eventImage = [self getImageFromURL:newEvent.img];
+                if ([newEvent.paid isEqual:@1]) {
+                    [self.paidEvents addObject:newEvent];
+                } else {
+                    [self.unpaidEvents addObject:newEvent];
+                }
+            }
+            
+            [self paidEventSegment:nil];
+        }];
     }
 }
 
@@ -73,21 +86,21 @@
 //    [myLocationManager requestAlwaysAuthorization];
 //}
 
--(void)parseJSON{
-    [self.activityIndicator startAnimating];
-    [[AuthManager shared]fetchDataWithCompletion:^(NSArray *dataObjects) {
-        for (NSDictionary *eventObject in dataObjects) {
-            Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
-            newEvent.eventImage = [self getImageFromURL:newEvent.img];
-            if ([newEvent.paid isEqual:@1]) {
-                [self.paidEvents addObject:newEvent];
-            } else {
-                [self.unpaidEvents addObject:newEvent];
-            }
-        }
-        [self paidEventSegment:nil];
-    }];
-}
+//-(void)parseJSON{
+//    [self.activityIndicator startAnimating];
+//    [[AuthManager shared]fetchDataWithCompletion:^(NSArray *dataObjects) {
+//        for (NSDictionary *eventObject in dataObjects) {
+//            Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
+//            newEvent.eventImage = [self getImageFromURL:newEvent.img];
+//            if ([newEvent.paid isEqual:@1]) {
+//                [self.paidEvents addObject:newEvent];
+//            } else {
+//                [self.unpaidEvents addObject:newEvent];
+//            }
+//        }
+//        [self paidEventSegment:nil];
+//    }];
+//}
 
 - (UIImage *)getImageFromURL:(NSString *)urlString {
     NSURL *imageURL = [NSURL URLWithString:urlString];

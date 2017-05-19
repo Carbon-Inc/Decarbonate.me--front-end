@@ -53,7 +53,7 @@
     }]resume];
 }
 
-- (void)fetchUserEvents {
+- (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"];
@@ -69,8 +69,7 @@
     
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:tokenData];
-//    request.HTTPBody = [value dataUsingEncoding:NSUTF8StringEncoding];
-//    [request setValue:value forHTTPHeaderField:@"Authorization"];
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) { 
             NSLog(@"Error Post: %@", error.localizedDescription);
@@ -81,9 +80,9 @@
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         NSLog(@"%@", jsonArray);
         
-        for (NSDictionary *eventDictionary in jsonArray) {
-            NSLog(@"%@", eventDictionary);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(jsonArray);
+        });
     }];
     [dataTask resume];
     

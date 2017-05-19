@@ -26,7 +26,6 @@
     [super viewWillAppear:animated];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] != nil) {
-        [[AuthManager shared] fetchUserEvents];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

@@ -13,7 +13,7 @@
 
 + (instancetype) shared;
 - (void)fetchDataWithCompletion:(void(^)(NSArray* dataObjects))completion;
-- (void)fetchUserEvents;
+- (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion;
 - (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSString *)distance;
 
 @property(strong, nonatomic) NSArray *jsonArray;
