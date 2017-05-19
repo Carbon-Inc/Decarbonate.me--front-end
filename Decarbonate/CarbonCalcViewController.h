@@ -13,14 +13,4 @@
 
 @property(strong, nonatomic) Event *selectedEvent;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *transportTypeSegment;
-
-
-@property (weak, nonatomic) IBOutlet UITextField *startPointTextField;
-@property (weak, nonatomic) IBOutlet UITextField *endPointTextField;
-@property (weak, nonatomic) IBOutlet UILabel *offsetCostLabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *calculateButton;
-@property (weak, nonatomic) IBOutlet UIButton *payButton;
-
 @end

@@ -13,32 +13,56 @@
 
 @interface CarbonCalcViewController ()
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *transportTypeSegment;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITextField *startPointTextField;
+@property (weak, nonatomic) IBOutlet UITextField *endPointTextField;
+@property (weak, nonatomic) IBOutlet UILabel *offsetCostLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carbonFootprintLabel;
+@property (weak, nonatomic) IBOutlet UIButton *calculateButton;
+@property (weak, nonatomic) IBOutlet UIButton *payButton;
+
 @end
 
 @implementation CarbonCalcViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@"%@", self.selectedEvent.name);
-    [[AuthManager shared] calculateCarbonFootprintForEvent:self.selectedEvent withDistance:@"1000"];
-    [self getLocationFromAddressString:@"2409 141st pl SE, Mill Creek, WA"];
+    self.carbonFootprintLabel.text = @"0 lbs";
+    self.offsetCostLabel.text = @"$0.00";
+    
+    self.calculateButton.layer.cornerRadius = self.calculateButton.bounds.size.height / 2;
+    self.calculateButton.layer.masksToBounds = YES;
+    self.endPointTextField.text = self.selectedEvent.address;
 }
 
 - (IBAction)calculateButtonPressed:(id)sender {
     NSString *startString = self.startPointTextField.text;
-    NSString *endString = self.endPointTextField.text;
+    
+    if ([startString isEqualToString:@""]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Address" message:@"Please make sure you enter a valid address." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okayAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okayAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
     CLLocationCoordinate2D startCoor = [self getLocationFromAddressString:startString];
-    CLLocationCoordinate2D endCoor = [self getLocationFromAddressString:endString];
+    CLLocationCoordinate2D endCoor = [self getLocationFromAddressString:self.endPointTextField.text];
+    
     
     CLLocationDistance calcDistance = [self getDistanceFromPoints:&startCoor destination:&endCoor];
-    
+    NSNumber *distance = [NSNumber numberWithInt:calcDistance / 1000];
+    [[AuthManager shared]calculateCarbonFootprintForEvent:self.selectedEvent withDistance:distance completion:^(NSDictionary *dataObject) {
+        NSLog(@"%@", dataObject);
+        NSLog(@"%@", dataObject[@"price"]);
+        self.offsetCostLabel.text = [NSString stringWithFormat:@"$%@", dataObject[@"price"]];
+        self.carbonFootprintLabel.text = [NSString stringWithFormat:@"%@ lbs", dataObject[@"footprint"]];
+    }];
 }
 
-- (IBAction)payButtonPressed:(id)sender {
+- (IBAction)payButtonPressed:(UIButton *)sender {
 }
-
-
 
 -(CLLocationCoordinate2D) getLocationFromAddressString: (NSString*) addressStr {
     double latitude = 0, longitude = 0;

@@ -31,28 +31,6 @@
     return self;
 }
 
-- (void)fetchDataWithCompletion:(void(^)(NSArray* dataObjects))completion {
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/events"];
-    
-    NSURL *urlForAPI = [[NSURL alloc]initWithString:urlString];
-
-    
-    [[session dataTaskWithURL:urlForAPI completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Error receiving response: %@", error.localizedDescription);
-        }
-        
-        if (data) {
-            NSError *jsonError;
-            NSArray *dataObjects = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(dataObjects);
-            });
-        }
-    }]resume];
-}
-
 - (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
@@ -88,19 +66,17 @@
     
 }
 
-- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSString *)distance {
+- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSNumber *)distance completion:(void(^)(NSDictionary* dataObject))completion {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSString *eventDate = event.start;
-//    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/%@/%@", eventDate, distance];
-     NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/2017-05-18/1000"];
+    NSString *urlString = [NSString stringWithFormat:@"https://decarbonate-me-staging.herokuapp.com/decarbonate/footprint/automobile/%@/%@", eventDate, distance];
     NSURL *url = [NSURL URLWithString:urlString];
+    NSLog(@"URLSTRING: %@", urlString);
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     [request setHTTPMethod:@"GET"];
-    
-    //    request.HTTPBody = [value dataUsingEncoding:NSUTF8StringEncoding];
-    //    [request setValue:value forHTTPHeaderField:@"Authorization"];
+
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error Post: %@", error.localizedDescription);
@@ -108,8 +84,11 @@
         
         NSLog(@"Response: %@", response);
         NSError *jsonError;
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        NSLog(@"%@", jsonArray);
+        NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(jsonDictionary);
+        });
         
 //        for (NSDictionary *eventDictionary in jsonArray) {
 //            NSLog(@"%@", eventDictionary);

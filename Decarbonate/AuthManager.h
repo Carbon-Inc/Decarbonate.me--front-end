@@ -11,10 +11,12 @@
 
 @interface AuthManager : NSObject
 
-+ (instancetype) shared;
-- (void)fetchDataWithCompletion:(void(^)(NSArray* dataObjects))completion;
++ (instancetype)shared;
 - (void)fetchUserEventsWithCompletion:(void(^)(NSArray* dataObjects))completion;
-- (void)calculateCarbonFootprintForEvent:(Event *)event withDistance:(NSString *)distance;
+
+- (void)calculateCarbonFootprintForEvent:(Event *)event
+                            withDistance:(NSNumber *)distance
+                              completion:(void(^)(NSDictionary* dataObject))completion;
 
 @property(strong, nonatomic) NSArray *jsonArray;
 
