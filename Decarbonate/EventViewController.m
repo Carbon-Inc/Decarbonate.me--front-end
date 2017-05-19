@@ -30,41 +30,11 @@
 
 @implementation EventViewController
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self presentAuthController];
-
-}
-
-- (void)presentAuthController {
-
-    LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginVIewController"];
-
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
-        [self presentViewController:loginVC animated:YES completion:nil];
-    } else {
-//        [self parseJSON];
-        [[AuthManager shared] fetchUserEventsWithCompletion:^(NSArray *dataObjects) {
-            for (NSDictionary *eventObject in dataObjects) {
-                Event *newEvent = [[Event alloc]initWithDictionary:eventObject];
-                newEvent.eventImage = [self getImageFromURL:newEvent.img];
-                if ([newEvent.paid isEqual:@1]) {
-                    [self.paidEvents addObject:newEvent];
-                } else {
-                    [self.unpaidEvents addObject:newEvent];
-                }
-            }
-            
-            [self paidEventSegment:nil];
-        }];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Do any additional setup after loading the view.
-
+    
     self.unpaidEvents = [[NSMutableArray alloc]init];
     self.paidEvents = [[NSMutableArray alloc]init];
     self.tableView.dataSource = self;
@@ -74,33 +44,40 @@
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    [self presentAuthController];
+    
     CLLocationManager* myLocationManager = [[CLLocationManager alloc] init];
     [myLocationManager requestAlwaysAuthorization];
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
-//-(void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//    CLLocationManager* myLocationManager = [[CLLocationManager alloc] init];
-//    [myLocationManager requestAlwaysAuthorization];
-//}
+- (void)presentAuthController {
 
-//-(void)parseJSON{
-//    [self.activityIndicator startAnimating];
-//    [[AuthManager shared]fetchDataWithCompletion:^(NSArray *dataObjects) {
-//        for (NSDictionary *eventObject in dataObjects) {
-//            Event *newEvent = [[Event alloc] initWithDictionary:eventObject];
-//            newEvent.eventImage = [self getImageFromURL:newEvent.img];
-//            if ([newEvent.paid isEqual:@1]) {
-//                [self.paidEvents addObject:newEvent];
-//            } else {
-//                [self.unpaidEvents addObject:newEvent];
-//            }
-//        }
-//        [self paidEventSegment:nil];
-//    }];
-//}
+    LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"loginVIewController"];
+
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kToken"] == nil) {
+        [self presentViewController:loginVC animated:YES completion:nil];
+    } else {
+
+        [[AuthManager shared] fetchUserEventsWithCompletion:^(NSArray *dataObjects) {
+            for (NSDictionary *eventObject in dataObjects) {
+                Event *newEvent = [[Event alloc]initWithDictionary:eventObject];
+                
+                if (newEvent != nil) {
+                    newEvent.eventImage = [self getImageFromURL:newEvent.img];
+                    if ([newEvent.paid isEqual:@1]) {
+                        [self.paidEvents addObject:newEvent];
+                    } else {
+                        [self.unpaidEvents addObject:newEvent];
+                    }
+                }
+            }
+            
+            [self paidEventSegment:nil];
+        }];
+    }
+}
 
 - (UIImage *)getImageFromURL:(NSString *)urlString {
     NSURL *imageURL = [NSURL URLWithString:urlString];

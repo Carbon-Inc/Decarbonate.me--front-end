@@ -89,10 +89,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(jsonDictionary);
         });
-        
-//        for (NSDictionary *eventDictionary in jsonArray) {
-//            NSLog(@"%@", eventDictionary);
-//        }
     }];
     [dataTask resume];
     

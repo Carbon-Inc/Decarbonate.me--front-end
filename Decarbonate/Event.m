@@ -20,20 +20,19 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
         NSDate *date = [dateFormatter dateFromString:json[@"start"]];
+        
+//        NSDateComponents *components = [NSCalendar currentCalendar]
+        
         NSTimeZone *pdt = [NSTimeZone timeZoneWithAbbreviation:@"PDT"];
         [dateFormatter setTimeZone:pdt];
         [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-        _start = [dateFormatter stringFromDate:date];
         
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-//        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'hh:mm:ss"];
-//        NSString *dateString = json[@"start"];
-//        NSLog(@"DATE STRING: %@", dateString);
-//        NSDateFormatter *dateF = [[NSDateFormatter alloc]init];
-//        [dateF setDateFormat:@"yyyy-MM-dd"];
-//        NSDate *date = [dateF dateFromString:dateString];
-//        NSLog(@"DATE: %@", date);
-//        _start = [dateFormatter stringFromDate:date];
+        if ([self isValidDate:date]) {
+            _start = [dateFormatter stringFromDate:date];
+        } else {
+            return nil;
+        }
+        
         _end = json[@"end"];
         _eventId = json[@"eventId"];
         _venueId = json[@"venueId"];
@@ -46,6 +45,26 @@
     }
     
     return self;
+}
+
+-(BOOL)isValidDate:(NSDate *)eventDate {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [dateFormatter dateFromString:@"2017-01-01"];
+    switch ([eventDate compare:date]) {
+        case NSOrderedAscending:
+            NSLog(@"Invalid");
+            return NO;
+            break;
+        case NSOrderedDescending:
+            NSLog(@"Valid");
+            return YES;
+            break;
+        case NSOrderedSame:
+            NSLog(@"Same");
+            return YES;
+            break;
+    }
 }
 
 @end
