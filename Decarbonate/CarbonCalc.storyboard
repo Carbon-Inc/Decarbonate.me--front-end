@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Carbon Calc View Controller-->
+        <!--Carbon Calculator-->
         <scene sceneID="vae-p0-OgA">
             <objects>
-                <viewController storyboardIdentifier="CarbonCalcViewController" id="Rh9-hc-03Z" customClass="CarbonCalcViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarbonCalcViewController" title="Carbon Calculator" id="Rh9-hc-03Z" customClass="CarbonCalcViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YWv-cH-oC3"/>
                         <viewControllerLayoutGuide type="bottom" id="Qvz-sU-fCU"/>

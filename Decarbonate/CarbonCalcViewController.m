@@ -8,6 +8,7 @@
 
 #import "CarbonCalcViewController.h"
 #import "AuthManager.h"
+#import <SafariServices/SafariServices.h>
 
 @import MapKit;
 
@@ -71,7 +72,9 @@
 }
 
 - (IBAction)payButtonPressed:(UIButton *)sender {
-    
+    NSURL *url = [NSURL URLWithString:@"https://www.terrapass.com/product/individuals-families"];
+    SFSafariViewController *safariVC = [[SFSafariViewController alloc]initWithURL:url];
+    [self presentViewController:safariVC animated:YES completion:nil];
 }
 
 -(CLLocationCoordinate2D) getLocationFromAddressString: (NSString*) addressStr {
